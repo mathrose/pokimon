@@ -3,7 +3,7 @@ public class Pikachu extends Criatura {
         super(nombre, 21, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
     }
-    // Mati: Hola
+    // Mati: Hola!
     public Pikachu(String nombre) {
         this(nombre, false);
     }
