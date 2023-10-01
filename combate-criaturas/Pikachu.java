@@ -4,7 +4,11 @@ public class Pikachu extends Criatura {
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
     }
     // Mati: Hola!!
+
     // Mati: Hola 2
+
+    // Diame: Hola
+
     public Pikachu(String nombre) {
         this(nombre, false);
     }
