@@ -20,9 +20,13 @@ public class Pikachu extends Criatura {
     // fran: hola 525
 
     
-    // hola 6
+    // hola 
     
     // Hola Mati 8
+    
+    // Hola walter2
+    
+
 
 
 
