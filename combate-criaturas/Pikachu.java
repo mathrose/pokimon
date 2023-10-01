@@ -8,6 +8,8 @@ public class Pikachu extends Criatura {
     // Mati: Hola 2
 
     // Diame: Hola
+    
+    // Diame: Hola 2
 
     public Pikachu(String nombre) {
         this(nombre, false);
