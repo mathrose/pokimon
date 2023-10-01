@@ -10,6 +10,7 @@ public class Pikachu extends Criatura {
     // Diame: Hola
     // Diame: Hola 2
     // Mati: Hola 3
+    // fran: hola 524
 
 
     public Pikachu(String nombre) {
