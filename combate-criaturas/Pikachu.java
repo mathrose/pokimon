@@ -14,6 +14,8 @@ public class Pikachu extends Criatura {
     // Mati: Hola 5
 
     // fran: hola 524
+    
+    // hola 6
 
 
     public Pikachu(String nombre) {
