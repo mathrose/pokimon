@@ -7,7 +7,19 @@ public class Pikachu extends Criatura {
     public Pikachu(String nombre) {
         this(nombre, false);
     }
-    
+    //Hola soy mati
+    //hola soy dylan :P
+
+    //Hola soy mati 2
+
+    //hola soy dylan 2 :P
+    //hola soy dylan 3
+    //hola soy dylan 4
+
+    //hola soy mati3
+
+    //hola soy dylan 3
+    //hola soy mati 4
     public void atacar2(Criatura otro) {
         atacar1(otro);
     }
