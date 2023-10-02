@@ -8,10 +8,11 @@ public class Pikachu extends Criatura {
         this(nombre, false);
     }
     //Hola soy mati
+    //hola soy dylan :P
     public void atacar2(Criatura otro) {
         atacar1(otro);
     }
-
+    
     public boolean puedeRealizarAtaque2En(Criatura otro) {
         return false;
     }
