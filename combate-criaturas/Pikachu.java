@@ -13,7 +13,8 @@ public class Pikachu extends Criatura {
     //Hola soy mati 2
 
     //hola soy dylan 2 :P
-
+    
+    //hola soy mati3
     public void atacar2(Criatura otro) {
         atacar1(otro);
     }
