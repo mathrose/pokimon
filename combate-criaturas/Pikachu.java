@@ -1,4 +1,4 @@
-public class Pikachu extends Criatura {
+﻿public class Pikachu extends Criatura {
     public Pikachu(String nombre, boolean imagenEspejada) {
         super(nombre, 21, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
@@ -24,8 +24,12 @@ public class Pikachu extends Criatura {
     
     // Hola Mati 8
     
+
     // Hola walter2
     
+
+
+    // Hola Mati 9
 
 
 
