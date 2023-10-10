@@ -8,7 +8,6 @@ public class PantallaDuelo extends World {
     private int ronda = 0;
     private int turno = 0;
 
-
     public PantallaDuelo() {
         super(700, 400, 1);
 
@@ -39,21 +38,26 @@ public class PantallaDuelo extends World {
     }
 
     private void ronda() {
-    	ronda++;
-    	turno();
+        ronda++;
+        turno();
     }
 
     public void turno() {
+        
         turno++;
-
+        
         for (int i = 0; i < criaturas.length; i++) {
+            
             criaturas[i].setVisualSeleccionado(false);
+            
         }
-
+        
         turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turno);
         uiAtaques.asignarCriaturaActual(criaturas[0]);
+        
+        System.out.println("ronda: " + ronda +" turno" + turno);
     }
-
+    
     public void click(Criatura c) {
         uiAtaques.click(c);
     }

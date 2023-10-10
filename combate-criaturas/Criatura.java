@@ -94,7 +94,14 @@ public abstract class Criatura extends Actor {
     }
 
     public void atacar1(Criatura otro) {
-        otro.recibirDaño(this);
+
+        if(otro.vida > 0) 
+            otro.recibirDaño(this);
+        if(otro.vida<0){
+            otro.vida = 0;
+            otro.uiInfoCriatura.actualizar();
+        }
+        //PantallaDuelo.turno();
     }
 
     public abstract void atacar2(Criatura otro);

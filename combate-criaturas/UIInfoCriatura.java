@@ -31,8 +31,10 @@ public class UIInfoCriatura extends Actor {
         double barraWidth = width - MARGIN * 2.5;
         GreenfootImage imagenBarra = new GreenfootImage(width - MARGIN * 2, 12);
         imagenBarra.setColor(Color.RED);
-
-        imagenBarra.fillRect(0, 0, (int) (barraWidth / 2), 11);
+        
+        // barraWidth / 2
+        
+        imagenBarra.fillRect(0, 0, (int) (criatura.vida * 100/criatura.vidaMaxima), 11);
         imagenBarra.setColor(Color.BLACK);
         imagenBarra.drawRect(0, 0, (int) barraWidth - 1, 11);
 

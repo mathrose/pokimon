@@ -1,35 +1,10 @@
-﻿public class Pikachu extends Criatura {
+public class Pikachu extends Criatura {
     public Pikachu(String nombre, boolean imagenEspejada) {
         super(nombre, 21, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
     }
-    // Mati: Hola!!
+   
 
-    // Mati: Hola 2
-
-    // Diame: Hola
-    // Diame: Hola 2
-    // Mati: Hola 3
-
-    // Mati: Hola 5
-
-    // fran: hola 524
-    
-    //hols walter
-
-    // fran: hola 525
-
-    
-    // hola 
-    
-    // Hola Mati 8
-    
-
-    // Hola walter2
-    
-
-
-    // Hola Mati 9
 
 
 
@@ -40,6 +15,7 @@
 
     public void atacar2(Criatura otro) {
         atacar1(otro);
+    
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
