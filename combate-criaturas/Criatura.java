@@ -18,7 +18,7 @@ public abstract class Criatura extends Actor {
     private boolean visualHover;
     private boolean visualSeleccionado;
 
-    private final MyGreenfootImage imagenOriginal;
+    private MyGreenfootImage imagenOriginal;
 
     public Criatura(String nombre, int vida, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
         this.nombre = nombre;
@@ -119,6 +119,16 @@ public abstract class Criatura extends Actor {
 
     protected int recibirDaño(Criatura atacante) {
         this.vida -= 5;
+        if (this.vida<=0){
+            this.vida = 0;
+            uiInfoCriatura.actualizar();
+            getWorld().removeObject(this.uiInfoCriatura);
+            getWorld().removeObject(this);
+            
+        }
+        //this.imagenOriginal = new MyGreenfootImage(new GreenfootImage("tumba.png"));
+        //this.imagenOriginal.scale(130, 130);
+        //render();
         uiInfoCriatura.actualizar();
         return 5;
     }
