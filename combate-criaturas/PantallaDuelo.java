@@ -21,16 +21,17 @@ public class PantallaDuelo extends World {
         addObject(uiAtaques, 350, 300);
 
         GreenfootImage imagenFondo = new GreenfootImage("fondo.png");
+        GifImage gifImage = new GifImage("absol.gif");
         getBackground().drawImage(imagenFondo, 0, 0);
 
         ronda();
     }
 
     private void agregarCriaturas() {
-        criaturas[0] = new Pikachu("Pikachu 1");
-        criaturas[1] = new Pikachu("Pikachu 2");
-        criaturas[2] = new Pikachu("Pikachu 3", true);
-        criaturas[3] = new Pikachu("Pikachu 4", true);
+        criaturas[0] = new Absol("Absol");
+        criaturas[1] = new Vicitiny("Chikorita");
+        criaturas[2] = new Poliwag("Poliwag", true);
+        criaturas[3] = new Chespin("Chespin", true);
 
         addObject(criaturas[0], 100, 80);
         addObject(criaturas[1], 240, 80);
@@ -39,8 +40,8 @@ public class PantallaDuelo extends World {
     }
 
     private void ronda() {
-    	ronda++;
-    	turno();
+        ronda++;
+        turno();
     }
 
     public void turno() {

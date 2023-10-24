@@ -1,11 +1,11 @@
-public class Pikachu extends Criatura {
-    public Pikachu(String nombre, boolean imagenEspejada) {
+public class Chespin extends Criatura {
+    public Chespin(String nombre, boolean imagenEspejada) {
         super(nombre, 21, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
     }
 //hola
 
-    public Pikachu(String nombre) {
+    public Chespin(String nombre) {
         this(nombre, false);
     }
     

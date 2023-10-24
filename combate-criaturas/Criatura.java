@@ -31,7 +31,7 @@ public abstract class Criatura extends Actor {
         this.vida = vida;
 
         this.equipo1 = equipo1;
-
+        
         this.imagenOriginal = new MyGreenfootImage(getImage());
         this.imagenOriginal.scale(130, 130);
 
