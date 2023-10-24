@@ -21,7 +21,6 @@ public class PantallaDuelo extends World {
         addObject(uiAtaques, 350, 300);
 
         GreenfootImage imagenFondo = new GreenfootImage("fondo.png");
-        GifImage gifImage = new GifImage("absol.gif");
         getBackground().drawImage(imagenFondo, 0, 0);
 
         ronda();
@@ -41,18 +40,31 @@ public class PantallaDuelo extends World {
 
     private void ronda() {
         ronda++;
-        turno();
+        turno(true);
     }
 
     public void turno() {
         turno++;
-
+        if (turno >= criaturas.length) {
+            ronda();
+        }
+        
         for (int i = 0; i < criaturas.length; i++) {
             criaturas[i].setVisualSeleccionado(false);
         }
 
         turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turno);
-        uiAtaques.asignarCriaturaActual(criaturas[0]);
+        uiAtaques.asignarCriaturaActual(criaturas[turno]);
+    }
+    public void turno(boolean nuevaRonda) {
+        turno = 0;
+        
+        for (int i = 0; i < criaturas.length; i++) {
+            criaturas[i].setVisualSeleccionado(false);
+        }
+
+        turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turno);
+        uiAtaques.asignarCriaturaActual(criaturas[turno]);
     }
 
     public void click(Criatura c) {
