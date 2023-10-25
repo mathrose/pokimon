@@ -31,7 +31,7 @@ public abstract class Criatura extends Actor {
         this.vida = vida;
 
         this.equipo1 = equipo1;
-        
+
         this.imagenOriginal = new MyGreenfootImage(getImage());
         this.imagenOriginal.scale(130, 130);
 
@@ -94,8 +94,10 @@ public abstract class Criatura extends Actor {
     }
 
     public void atacar1(Criatura otro) {
-        otro.recibirDaño(this);
-        ((PantallaDuelo)getWorld()).turno();
+        if (this != null) {
+            otro.recibirDaño(this);
+            ((PantallaDuelo)getWorld()).turno();
+        }
     }
 
     public abstract void atacar2(Criatura otro);
@@ -125,7 +127,7 @@ public abstract class Criatura extends Actor {
             uiInfoCriatura.actualizar();
             getWorld().removeObject(this.uiInfoCriatura);
             getWorld().removeObject(this);
-            
+
         }
         //this.imagenOriginal = new MyGreenfootImage(new GreenfootImage("tumba.png"));
         //this.imagenOriginal.scale(130, 130);
