@@ -28,10 +28,10 @@ public class PantallaDuelo extends World {
     }
 
     private void agregarCriaturas() {
-        criaturas[0] = new Absol("Absol");
-        criaturas[1] = new Chikorita("Chikorita");
-        criaturas[2] = new Poliwag("Poliwag", true);
-        criaturas[3] = new Chespin("Chespin", true);
+        criaturas[0] = new Blastoise("Blastoise");
+        criaturas[1] = new Sylveon("Sylveon");
+        criaturas[2] = new Mew("Mew", true);
+        criaturas[3] = new Mimikyu("Mimikyu", true);
 
         addObject(criaturas[0], 100, 150);
         addObject(criaturas[1], 300, 150);
@@ -41,7 +41,7 @@ public class PantallaDuelo extends World {
     }
 
     public void removerCriaturas() {
-        criaturas[0] = new Absol("Absol");
+        criaturas[0] = new Blastoise("Absol");
         criaturas[1] = new Chikorita("Chikorita");
         criaturas[2] = new Poliwag("Poliwag", true);
         criaturas[3] = new Chespin("Chespin", true);
@@ -127,30 +127,6 @@ public class PantallaDuelo extends World {
 
         return cantidadDeCriaturasVivas;
     }
-
-    /***
-
-    private Criatura[] criaturasVivas() {
-    int cantidadDeCriaturasVivas = 0;
-
-    for (int i = 0; i < criaturas.length; i++) {
-
-    if (criaturas[i] != null) {
-    cantidadDeCriaturasVivas++;
-    }
-    }
-    Criatura [] listaDeCriaturasVivas = new Criatura[cantidadDeCriaturasVivas];
-    for (int i = 0; i < cantidadDeCriaturasVivas; i++) {
-    int j = 0;
-    if (criaturas[i] != null) {
-    listaDeCriaturasVivas[j] = criaturas[i];
-    j++;
-    }
-    }
-    return listaDeCriaturasVivas;
-    }
-     * 
-     */
 
     public void click(Criatura c) {
         if (c != null)

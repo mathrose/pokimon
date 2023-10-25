@@ -1,14 +1,14 @@
 import greenfoot.GreenfootImage;
 
-public class Absol extends Criatura {
-    public Absol(String nombre, boolean imagenEspejada) {
+public class Mew extends Criatura {
+    public Mew(String nombre, boolean imagenEspejada) {
         super(nombre, 21, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
                 
 
     }
 
-    public Absol(String nombre) {
+    public Mew(String nombre) {
         this(nombre, false);
     }
     

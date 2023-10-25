@@ -16,7 +16,6 @@ comment7.params=
 comment7.target=int\ criaturasVivas()
 comment8.params=c
 comment8.target=void\ click(Criatura)
-comment8.text=\r\n\r\n\ \ \ \ private\ Criatura[]\ criaturasVivas()\ {\r\n\ \ \ \ int\ cantidadDeCriaturasVivas\ \=\ 0;\r\n\r\n\ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ criaturas.length;\ i++)\ {\r\n\r\n\ \ \ \ if\ (criaturas[i]\ \!\=\ null)\ {\r\n\ \ \ \ cantidadDeCriaturasVivas++;\r\n\ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ Criatura\ []\ listaDeCriaturasVivas\ \=\ new\ Criatura[cantidadDeCriaturasVivas];\r\n\ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ cantidadDeCriaturasVivas;\ i++)\ {\r\n\ \ \ \ int\ j\ \=\ 0;\r\n\ \ \ \ if\ (criaturas[i]\ \!\=\ null)\ {\r\n\ \ \ \ listaDeCriaturasVivas[j]\ \=\ criaturas[i];\r\n\ \ \ \ j++;\r\n\ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ return\ listaDeCriaturasVivas;\r\n\ \ \ \ }\r\n\ \r\n
 comment9.params=c
 comment9.target=void\ hover(Criatura)
 numComments=10

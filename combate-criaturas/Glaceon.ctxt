@@ -1,9 +1,9 @@
 #BlueJ class context
-comment0.target=Absol
+comment0.target=Glaceon
 comment1.params=nombre\ imagenEspejada
-comment1.target=Absol(java.lang.String,\ boolean)
+comment1.target=Glaceon(java.lang.String,\ boolean)
 comment2.params=nombre
-comment2.target=Absol(java.lang.String)
+comment2.target=Glaceon(java.lang.String)
 comment3.params=otro
 comment3.target=void\ atacar2(Criatura)
 comment4.params=otro

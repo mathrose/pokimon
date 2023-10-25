@@ -19,6 +19,8 @@ public abstract class Criatura extends Actor {
     private boolean visualSeleccionado;
 
     private MyGreenfootImage imagenOriginal;
+    
+    
 
     public Criatura(String nombre, int vida, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
         this.nombre = nombre;
@@ -33,7 +35,7 @@ public abstract class Criatura extends Actor {
         this.equipo1 = equipo1;
 
         this.imagenOriginal = new MyGreenfootImage(getImage());
-        this.imagenOriginal.scale(130, 130);
+        this.imagenOriginal.scale(170, 170);
 
         this.uiInfoCriatura = new UIInfoCriatura(this);
     }
