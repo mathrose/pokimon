@@ -17,22 +17,24 @@ public class UIAtaques extends Actor {
     public UIAtaques(Criatura[] criaturas) {
         this.criaturas = criaturas;
 
-        b1 = new Boton("", null, 25, Color.BLACK, 320, 30);
-        b2 = new Boton("", null, 25, Color.BLACK, 320, 30);
-        b3 = new Boton("", null, 25, Color.BLACK, 320, 30);
-        b4 = new Boton("", null, 30, Color.BLACK, 320, 36);
-        descripcion = new Parrafo("Ataque", 20, Color.BLACK, 344, 192);
+        b1 = new Boton("", null, 25, Color.BLACK, 344, 30);
+        b2 = new Boton("", null, 25, Color.BLACK, 344, 30);
+        b3 = new Boton("", null, 25, Color.BLACK, 344, 30);
+        b4 = new Boton("", null, 30, Color.BLACK, 344, 30);
+        descripcion = new Parrafo("Ataque", 20, Color.BLACK, 400, 192);
         tituloAtaques = new Texto("Ataques", 30, Color.WHITE, null);
     }
 
     @Override
     protected void addedToWorld(World world) {
-        getWorld().addObject(tituloAtaques, 170, 225);
-        getWorld().addObject(b1, 176, 265);
-        getWorld().addObject(b2, 176, 300);
-        getWorld().addObject(b3, 176, 335);
-        getWorld().addObject(b4, 176, 373);
-        getWorld().addObject(descripcion, 352 + 344 / 2, 300);
+        int inicioCuadro = 325;
+        int centroDeCuadroAzul = 226;
+        getWorld().addObject(tituloAtaques, centroDeCuadroAzul, inicioCuadro);
+        getWorld().addObject(b1, centroDeCuadroAzul, 361);
+        getWorld().addObject(b2, centroDeCuadroAzul, 401);
+        getWorld().addObject(b3, centroDeCuadroAzul, 441);
+        getWorld().addObject(b4, centroDeCuadroAzul, 481);
+        getWorld().addObject(descripcion, 600, 400);
     }
 
     public void asignarCriaturaActual(Criatura criaturaActual) {

@@ -11,7 +11,7 @@ public class PantallaDuelo extends World {
     private int turnoTextoNumero = 0;
 
     public PantallaDuelo() {
-        super(700, 400, 1);
+        super(800, 500, 1);
 
         agregarCriaturas();
 
@@ -19,7 +19,7 @@ public class PantallaDuelo extends World {
         addObject(turnoTexto, turnoTexto.getImage().getWidth() / 2, turnoTexto.getImage().getHeight() / 2);
 
         uiAtaques = new UIAtaques(criaturas);
-        addObject(uiAtaques, 350, 300);
+        addObject(uiAtaques, 400, 400);
 
         GreenfootImage imagenFondo = new GreenfootImage("fondo.png");
         getBackground().drawImage(imagenFondo, 0, 0);
@@ -29,20 +29,20 @@ public class PantallaDuelo extends World {
 
     private void agregarCriaturas() {
         criaturas[0] = new Absol("Absol");
-        criaturas[1] = new Vicitiny("Chikorita");
+        criaturas[1] = new Chikorita("Chikorita");
         criaturas[2] = new Poliwag("Poliwag", true);
         criaturas[3] = new Chespin("Chespin", true);
 
-        addObject(criaturas[0], 100, 80);
-        addObject(criaturas[1], 240, 80);
-        addObject(criaturas[2], 460, 80);
-        addObject(criaturas[3], 600, 80);
+        addObject(criaturas[0], 100, 150);
+        addObject(criaturas[1], 300, 150);
+        addObject(criaturas[2], 500, 150);
+        addObject(criaturas[3], 700, 150);
 
     }
 
     public void removerCriaturas() {
         criaturas[0] = new Absol("Absol");
-        criaturas[1] = new Vicitiny("Chikorita");
+        criaturas[1] = new Chikorita("Chikorita");
         criaturas[2] = new Poliwag("Poliwag", true);
         criaturas[3] = new Chespin("Chespin", true);
 

@@ -100,7 +100,15 @@ public abstract class Criatura extends Actor {
         }
     }
 
-    public abstract void atacar2(Criatura otro);
+    public void atacar2(Criatura otro) {
+     {
+        if (this != null) {
+            otro.recibirDaño(this);
+            ((PantallaDuelo)getWorld()).turno();
+        }
+    }
+    
+    }
 
     public abstract void atacar3(Criatura otro);
 
