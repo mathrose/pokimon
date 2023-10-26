@@ -1,6 +1,6 @@
 public class Vicitiny extends Criatura {
     public Vicitiny(String nombre, boolean imagenEspejada) {
-        super(nombre, 21, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+        super(nombre, 21,50,50,50, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
     }
 //hola

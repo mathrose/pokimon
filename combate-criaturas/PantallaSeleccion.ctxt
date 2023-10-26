@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=PantallaSeleccion
+comment1.params=
+comment1.target=PantallaSeleccion()
+comment2.params=
+comment2.target=void\ agregarCriaturas()
+comment3.params=
+comment3.target=void\ removerCriaturas()
+comment4.params=
+comment4.target=void\ ronda()
+comment5.params=
+comment5.target=void\ turno()
+comment6.params=nuevaRonda
+comment6.target=void\ turno(boolean)
+comment7.params=
+comment7.target=int\ criaturasVivas()
+comment8.params=c
+comment8.target=void\ click(Criatura)
+comment9.params=c
+comment9.target=void\ hover(Criatura)
+numComments=10

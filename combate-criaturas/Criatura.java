@@ -10,9 +10,13 @@ public abstract class Criatura extends Actor {
     protected final String[] detallesAtaque;
 
     protected final boolean equipo1;
-
+    
+    //atributos de la criatura
     protected int vida;
-
+    protected int ataque;
+    protected int velocidad;
+    protected int defensa;
+    
     private UIInfoCriatura uiInfoCriatura;
 
     private boolean visualHover;
@@ -21,8 +25,10 @@ public abstract class Criatura extends Actor {
     private MyGreenfootImage imagenOriginal;
     
     
+    
+    
 
-    public Criatura(String nombre, int vida, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
+    public Criatura(String nombre, int vida, int ataque,int defensa, int velocidad , String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
         this.nombre = nombre;
 
         this.vidaMaxima = vida;
@@ -31,6 +37,9 @@ public abstract class Criatura extends Actor {
         this.detallesAtaque = detallesAtaque;
 
         this.vida = vida;
+        this.ataque = ataque;
+        this.defensa = defensa;
+        this.velocidad = velocidad;
 
         this.equipo1 = equipo1;
 
@@ -177,9 +186,9 @@ public abstract class Criatura extends Actor {
 
     public String getStats() {
         return nombre + " (" + this.getClass().getSimpleName() + ")\n" +
-        " - Ataque: 0\n" +
-        " - Defensa: 0\n" +
-        " - Velocidad: 0\n"
+        " - Ataque: "+ this.ataque +"\n" +
+        " - Defensa: " + this.defensa +"\n" +
+        " - Velocidad:"+ this.velocidad +" \n"
         ;
     }
 }

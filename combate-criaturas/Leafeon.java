@@ -2,7 +2,7 @@ import greenfoot.GreenfootImage;
 
 public class Leafeon extends Criatura {
     public Leafeon(String nombre, boolean imagenEspejada) {
-        super(nombre, 21, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+        super(nombre, 21,60,50,50, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
                 
 
