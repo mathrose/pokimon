@@ -1,9 +1,9 @@
 #BlueJ class context
-comment0.target=Chespin
+comment0.target=Delphox
 comment1.params=nombre\ imagenEspejada
-comment1.target=Chespin(java.lang.String,\ boolean)
+comment1.target=Delphox(java.lang.String,\ boolean)
 comment2.params=nombre
-comment2.target=Chespin(java.lang.String)
+comment2.target=Delphox(java.lang.String)
 comment3.params=otro
 comment3.target=void\ atacar2(Criatura)
 comment4.params=otro

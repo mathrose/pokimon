@@ -10,25 +10,24 @@ public abstract class Criatura extends Actor {
     protected final String[] detallesAtaque;
 
     protected final boolean equipo1;
-    
+
     //atributos de la criatura
     protected int vida;
     protected int ataque;
     protected int velocidad;
     protected int defensa;
-    
+    protected String elemento;
+
     private UIInfoCriatura uiInfoCriatura;
 
     private boolean visualHover;
     private boolean visualSeleccionado;
 
     private MyGreenfootImage imagenOriginal;
-    
-    
-    
+
     
 
-    public Criatura(String nombre, int vida, int ataque,int defensa, int velocidad , String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
+    public Criatura(String nombre, int vida, int ataque,int defensa, int velocidad , String elemento, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
         this.nombre = nombre;
 
         this.vidaMaxima = vida;
@@ -40,6 +39,7 @@ public abstract class Criatura extends Actor {
         this.ataque = ataque;
         this.defensa = defensa;
         this.velocidad = velocidad;
+        this.elemento = elemento;
 
         this.equipo1 = equipo1;
 
@@ -105,20 +105,18 @@ public abstract class Criatura extends Actor {
     }
 
     public void atacar1(Criatura otro) {
-        if (this != null) {
-            otro.recibirDaño(this);
-            ((PantallaDuelo)getWorld()).turno();
-        }
+        otro.recibirDaño(this);
+        ((PantallaDuelo)getWorld()).turno();
+        System.out.print("Hello2");
     }
 
     public void atacar2(Criatura otro) {
-     {
-        if (this != null) {
+        {
             otro.recibirDaño(this);
             ((PantallaDuelo)getWorld()).turno();
+            System.out.print("Hello3");
         }
-    }
-    
+
     }
 
     public abstract void atacar3(Criatura otro);
@@ -186,9 +184,10 @@ public abstract class Criatura extends Actor {
 
     public String getStats() {
         return nombre + " (" + this.getClass().getSimpleName() + ")\n" +
-        " - Ataque: "+ this.ataque +"\n" +
-        " - Defensa: " + this.defensa +"\n" +
-        " - Velocidad:"+ this.velocidad +" \n"
+        " - Ataque: "+ this.ataque + "\n" +
+        " - Defensa: " + this.defensa + "\n" +
+        " - Velocidad: "+ this.velocidad + "\n" +
+        " - Tipo: " + this.elemento + "\n"  
         ;
     }
 }

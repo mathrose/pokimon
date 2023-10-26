@@ -20,8 +20,8 @@ public class UIAtaques extends Actor {
         b1 = new Boton("", null, 25, Color.BLACK, 344, 30);
         b2 = new Boton("", null, 25, Color.BLACK, 344, 30);
         b3 = new Boton("", null, 25, Color.BLACK, 344, 30);
-        b4 = new Boton("", null, 30, Color.BLACK, 344, 30);
-        descripcion = new Parrafo("Ataque", 20, Color.BLACK, 400, 192);
+        b4 = new Boton("", null, 25, Color.BLACK, 344, 30);
+        descripcion = new Parrafo("Ataque", 20, Color.BLACK, 330, 192);
         tituloAtaques = new Texto("Ataques", 30, Color.WHITE, null);
     }
 
@@ -34,7 +34,7 @@ public class UIAtaques extends Actor {
         getWorld().addObject(b2, centroDeCuadroAzul, 401);
         getWorld().addObject(b3, centroDeCuadroAzul, 441);
         getWorld().addObject(b4, centroDeCuadroAzul, 481);
-        getWorld().addObject(descripcion, 600, 400);
+        getWorld().addObject(descripcion, 562, 391);
     }
 
     public void asignarCriaturaActual(Criatura criaturaActual) {

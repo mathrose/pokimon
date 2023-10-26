@@ -1,11 +1,14 @@
-public class Vicitiny extends Criatura {
-    public Vicitiny(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,50,50,50, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
-                new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
-    }
-//hola
+import greenfoot.GreenfootImage;
 
-    public Vicitiny(String nombre) {
+public class Charizard extends Criatura {
+    public Charizard(String nombre, boolean imagenEspejada) {
+        super(nombre, 90,40,20,90 , "Fuego", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+                new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
+                
+
+    }
+
+    public Charizard(String nombre) {
         this(nombre, false);
     }
     

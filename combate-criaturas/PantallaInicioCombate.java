@@ -40,19 +40,6 @@ public class PantallaInicioCombate extends World {
 
     }
 
-    public void removerCriaturas() {
-        criaturas[0] = new Blastoise("Absol");
-        criaturas[1] = new Chikorita("Chikorita");
-        criaturas[2] = new Poliwag("Poliwag", true);
-        criaturas[3] = new Chespin("Chespin", true);
-
-        addObject(criaturas[0], 100, 80);
-        addObject(criaturas[1], 240, 80);
-        addObject(criaturas[2], 460, 80);
-        addObject(criaturas[3], 600, 80);
-
-    }
-
     private void ronda() {
         ronda++;
         turno(true);

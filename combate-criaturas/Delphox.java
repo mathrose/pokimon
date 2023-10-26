@@ -1,11 +1,14 @@
-public class Poliwag extends Criatura {
-    public Poliwag(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,50,50,20, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
-                new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
-    }
-//hola
+import greenfoot.GreenfootImage;
 
-    public Poliwag(String nombre) {
+public class Delphox extends Criatura {
+    public Delphox(String nombre, boolean imagenEspejada) {
+        super(nombre, 90,40,20,90 , "Fuego", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+                new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
+                
+
+    }
+
+    public Delphox(String nombre) {
         this(nombre, false);
     }
     

@@ -2,7 +2,7 @@ import greenfoot.GreenfootImage;
 
 public class Espeon extends Criatura {
     public Espeon(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,40,30,30, new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+        super(nombre, 21,40,30,30, "Psiquico", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
                 
 
