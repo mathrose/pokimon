@@ -67,9 +67,13 @@ public class PantallaDuelo extends World {
         else {
             turno();
         }
-
-        if (getObjects(Criatura.class).size() == 1) {
-            System.out.println("Juego terminado");
+        
+        //verifica si todos los pokemons son del mismo equipo y da fin a la pelea.
+        if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == true)) {
+            uiAtaques.cambiarDescripcion("Gana el equipo rojo!");
+        }
+        if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == false)) {
+           uiAtaques.cambiarDescripcion("Gana el equipo azul!");
         }
     }
 
@@ -89,17 +93,30 @@ public class PantallaDuelo extends World {
             turno();
         }
 
-        if (getObjects(Criatura.class).size() == 1) {
-            System.out.println("Juego terminado");
+        /**
+         * Como recorrer los objetos activos
+         * 
+        getObjects(Criatura.class).forEach(criatura -> {
+                    if (criatura.esEquipo1()){
+
+                    }
+
+            });
+        **/
+        
+        //verifica si todos los pokemons son del mismo equipo y da fin a la pelea.
+        if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == true)) {
+            uiAtaques.cambiarDescripcion("Gana el equipo rojo!");
         }
+        if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == false)) {
+           uiAtaques.cambiarDescripcion("Gana el equipo azul!");
+        }
+ 
+        
     }
-
     private int criaturasVivas() {
-
         int cantidadDeCriaturasVivas = 0;
-
         for (int i = 0; i < criaturas.length; i++) {
-
             if (criaturas[i] != null) {
                 cantidadDeCriaturasVivas++;
             }

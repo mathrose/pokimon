@@ -250,7 +250,7 @@ public abstract class Criatura extends Actor {
             mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " no ha sido efectivo.";
 
         this.mensajeAtaque = mensajeAtaque;
-        System.out.print(this.mensajeAtaque);
+        //System.out.print(this.mensajeAtaque);
     }
 
     public String getMensajeAtaque() {
