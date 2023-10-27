@@ -28,7 +28,6 @@ public abstract class Criatura extends Actor {
 
     private MyGreenfootImage imagenOriginal;
 
-
     public Criatura(String nombre, int vida, int ataque,int defensa, int velocidad , String elemento, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
         this.nombre = nombre;
 
@@ -109,13 +108,7 @@ public abstract class Criatura extends Actor {
 
     public void atacar1(Criatura otro) {
         double efectividad = otro.recibirDaño(this);
-        String mensajeAtaque = this.nombre + " ha usado " + this.nombresAtaque[0] + "\n";
-        if (efectividad == 1.25)
-            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " ha sido efectivo!";
-        if (efectividad == 0.75)
-            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " no ha sido efectivo.";
-        this.mensajeAtaque = mensajeAtaque;
-        System.out.print(this.mensajeAtaque);
+        actualizarMensajeAtaque(efectividad);
         ((PantallaDuelo)getWorld()).turno();
     }
 
@@ -147,12 +140,12 @@ public abstract class Criatura extends Actor {
 
     protected double recibirDaño(Criatura atacante) {
         double[] calculoAtaque = calcularAtaque(atacante);
-        
+
         int daño = (int)calculoAtaque[0];
         double efectividad = calculoAtaque[1];
-        
+
         this.vida -= daño;
-        
+
         // START Remueve el objeto del pokemon si se queda sin vida
         if (this.vida<=0){
             this.vida = 0;
@@ -161,8 +154,7 @@ public abstract class Criatura extends Actor {
             getWorld().removeObject(this);
         }
         // END
-        
-        
+
         //this.imagenOriginal = new MyGreenfootImage(new GreenfootImage("tumba.png"));
         //this.imagenOriginal.scale(130, 130);
         //render();
@@ -248,6 +240,17 @@ public abstract class Criatura extends Actor {
         " - Velocidad: "+ this.velocidad + "\n" +
         " - Tipo: " + this.elemento + "\n"  
         ;
+    }
+
+    private void actualizarMensajeAtaque(double efectividad) {
+        String mensajeAtaque = this.nombre + " ha usado " + this.nombresAtaque[0] + "\n";
+        if (efectividad == 1.25)
+            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " ha sido efectivo!";
+        if (efectividad == 0.75)
+            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " no ha sido efectivo.";
+
+        this.mensajeAtaque = mensajeAtaque;
+        System.out.print(this.mensajeAtaque);
     }
 
     public String getMensajeAtaque() {

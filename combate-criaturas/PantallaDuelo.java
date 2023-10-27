@@ -49,27 +49,23 @@ public class PantallaDuelo extends World {
         String mensajeAtaque = criaturas[turno].getMensajeAtaque();
         turno++;
         if (turno >= criaturas.length) {
+            uiAtaques.cambiarDescripcion(mensajeAtaque);
             ronda();
         }
 
         if (getObjects(criaturas[turno].getClass()).size() != 0){
             turnoTextoNumero++;
-
             for (int i = 0; i < criaturas.length; i++) {
                 if (getObjects(criaturas[i].getClass()).size() != 0){
                     criaturas[i].setVisualSeleccionado(false);
                 }
             }
-
             turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turnoTextoNumero);
             uiAtaques.asignarCriaturaActual(criaturas[turno]);
             uiAtaques.cambiarDescripcion(mensajeAtaque);
         }
         else {
-            //System.out.println("Criatura " + turno + " existe: " + criaturas[turno].getClass());
-
             turno();
-
         }
 
         if (getObjects(Criatura.class).size() == 1) {
@@ -81,20 +77,18 @@ public class PantallaDuelo extends World {
         turno = 0;
         turnoTextoNumero = 0;
         if (getObjects(criaturas[turno].getClass()).size() != 0){
-            //System.out.println(getObjects(Criatura.class));
             for (int i = 0; i < criaturas.length; i++) {
                 if (getObjects(criaturas[i].getClass()).size() != 0){
                     criaturas[i].setVisualSeleccionado(false);
 
                 }
             }
-
             turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turnoTextoNumero);
             uiAtaques.asignarCriaturaActual(criaturas[turno]);
         }else{
-            //System.out.println("new: Criatura " + turno + " existe: " + criaturas[turno].getClass());
             turno();
         }
+
         if (getObjects(Criatura.class).size() == 1) {
             System.out.println("Juego terminado");
         }
