@@ -10,7 +10,7 @@ public class Blastoise extends Criatura {
     
     public void atacar2(Criatura otro) {
         atacar1(otro);
-        System.out.print("Hello");
+        
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {

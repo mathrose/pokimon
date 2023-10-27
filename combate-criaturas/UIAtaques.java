@@ -65,6 +65,10 @@ public class UIAtaques extends Actor {
             ataque.run();
         }
     }
+    
+    public void cambiarDescripcion(String texto) {
+        descripcion.setText(texto);
+    }
 
     public void hover(Criatura c) {
         if (hoverObjetivo == c) {

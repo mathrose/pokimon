@@ -46,6 +46,7 @@ public class PantallaDuelo extends World {
     }
 
     public void turno() {
+        String mensajeAtaque = criaturas[turno].getMensajeAtaque();
         turno++;
         if (turno >= criaturas.length) {
             ronda();
@@ -53,18 +54,16 @@ public class PantallaDuelo extends World {
 
         if (getObjects(criaturas[turno].getClass()).size() != 0){
             turnoTextoNumero++;
-            //System.out.println(turno + " " + getObjects(criaturas[turno].getClass()).getClass());
 
             for (int i = 0; i < criaturas.length; i++) {
                 if (getObjects(criaturas[i].getClass()).size() != 0){
                     criaturas[i].setVisualSeleccionado(false);
-
                 }
             }
 
             turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turnoTextoNumero);
             uiAtaques.asignarCriaturaActual(criaturas[turno]);
-
+            uiAtaques.cambiarDescripcion(mensajeAtaque);
         }
         else {
             //System.out.println("Criatura " + turno + " existe: " + criaturas[turno].getClass());

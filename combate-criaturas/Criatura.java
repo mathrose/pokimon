@@ -1,5 +1,5 @@
 import java.util.List;
-
+import java.util.Random;
 import greenfoot.*;
 
 public abstract class Criatura extends Actor {
@@ -16,7 +16,10 @@ public abstract class Criatura extends Actor {
     protected int ataque;
     protected int velocidad;
     protected int defensa;
+    protected int defensaBase;
     protected String elemento;
+    protected String mensajeAtaque = "";
+    protected String nombreAtaqueActual = "";
 
     private UIInfoCriatura uiInfoCriatura;
 
@@ -25,7 +28,6 @@ public abstract class Criatura extends Actor {
 
     private MyGreenfootImage imagenOriginal;
 
-    
 
     public Criatura(String nombre, int vida, int ataque,int defensa, int velocidad , String elemento, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
         this.nombre = nombre;
@@ -38,6 +40,7 @@ public abstract class Criatura extends Actor {
         this.vida = vida;
         this.ataque = ataque;
         this.defensa = defensa;
+        this.defensaBase = defensa;
         this.velocidad = velocidad;
         this.elemento = elemento;
 
@@ -105,16 +108,21 @@ public abstract class Criatura extends Actor {
     }
 
     public void atacar1(Criatura otro) {
-        otro.recibirDaño(this);
+        double efectividad = otro.recibirDaño(this);
+        String mensajeAtaque = this.nombre + " ha usado " + this.nombresAtaque[0] + "\n";
+        if (efectividad == 1.25)
+            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " ha sido efectivo!";
+        if (efectividad == 0.75)
+            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " no ha sido efectivo.";
+        this.mensajeAtaque = mensajeAtaque;
+        System.out.print(this.mensajeAtaque);
         ((PantallaDuelo)getWorld()).turno();
-        System.out.print("Hello2");
     }
 
     public void atacar2(Criatura otro) {
         {
             otro.recibirDaño(this);
             ((PantallaDuelo)getWorld()).turno();
-            System.out.print("Hello3");
         }
 
     }
@@ -137,28 +145,79 @@ public abstract class Criatura extends Actor {
 
     public abstract boolean puedeRealizarAtaque4En(Criatura otro);
 
-    protected int recibirDaño(Criatura atacante) {
-        this.vida -= 5;
+    protected double recibirDaño(Criatura atacante) {
+        double[] calculoAtaque = calcularAtaque(atacante);
+        
+        int daño = (int)calculoAtaque[0];
+        double efectividad = calculoAtaque[1];
+        
+        this.vida -= daño;
+        
+        // START Remueve el objeto del pokemon si se queda sin vida
         if (this.vida<=0){
             this.vida = 0;
             uiInfoCriatura.actualizar();
             getWorld().removeObject(this.uiInfoCriatura);
             getWorld().removeObject(this);
-
         }
+        // END
+        
+        
         //this.imagenOriginal = new MyGreenfootImage(new GreenfootImage("tumba.png"));
         //this.imagenOriginal.scale(130, 130);
         //render();
         uiInfoCriatura.actualizar();
-        return 5;
+        return efectividad;
+    }
+
+    private double[] calcularAtaque(Criatura atacante) {
+        Random random = new Random();
+        double ataqueContraDefensa = atacante.getAtaque()/this.defensa;
+        double randomNumber = random.nextInt(5);
+        double efectividad = calcularEfectividad(atacante);
+        double daño = 2*(1+ataqueContraDefensa)*randomNumber*efectividad;
+        return (new double[] {daño, efectividad});
+    }
+
+    private double calcularEfectividad(Criatura atacante) {
+        if (this.elemento == "Fuego" && atacante.getElemento() == "Agua")
+            return 1.25;
+        if (this.elemento == "Agua" && atacante.getElemento() == "Fuego")
+            return 0.75;
+        if (this.elemento == "Planta" && atacante.getElemento() == "Fuego")
+            return 1.25;
+        if (this.elemento == "Fuego" && atacante.getElemento() == "Planta")
+            return 0.75;
+        if (this.elemento == "Viento" && atacante.getElemento() == "Tierra")
+            return 1.75;
+        if (this.elemento == "Tierra" && atacante.getElemento() == "Viento")
+            return 1.25;
+
+        return 1;
     }
 
     public int getVida() {
-        return vida;
+        return this.vida;
+    }
+
+    public int getAtaque() {
+        return this.ataque;
+    }
+
+    public int getDefensa() {
+        return this.defensa;
+    }
+
+    public int getVelocidad() {
+        return this.velocidad;
+    }
+
+    public String getElemento() {
+        return this.elemento;
     }
 
     public int getVidaMaxima() {
-        return vidaMaxima;
+        return this.vidaMaxima;
     }
 
     public boolean esEquipo1() {
@@ -189,5 +248,10 @@ public abstract class Criatura extends Actor {
         " - Velocidad: "+ this.velocidad + "\n" +
         " - Tipo: " + this.elemento + "\n"  
         ;
+    }
+
+    public String getMensajeAtaque() {
+
+        return this.mensajeAtaque;
     }
 }
