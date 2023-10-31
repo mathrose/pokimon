@@ -21,7 +21,7 @@ public abstract class Criatura extends Actor {
     protected String mensajeAtaque = "";
     protected String nombreAtaqueActual = "";
 
-    private UIInfoCriatura uiInfoCriatura;
+    protected UIInfoCriatura uiInfoCriatura;
 
     private boolean visualHover;
     private boolean visualSeleccionado;
@@ -107,14 +107,14 @@ public abstract class Criatura extends Actor {
     }
 
     public void atacar1(Criatura otro) {
-        double efectividad = otro.recibirDaño(this);
-        actualizarMensajeAtaque(efectividad);
+        double efectividad = otro.recibirDaño(this, this.ataque);
+        actualizarMensajeAtaque(efectividad, 0);
         ((PantallaDuelo)getWorld()).turno();
     }
 
     public void atacar2(Criatura otro) {
         {
-            otro.recibirDaño(this);
+            otro.recibirDaño(this, this.ataque);
             ((PantallaDuelo)getWorld()).turno();
         }
 
@@ -138,8 +138,8 @@ public abstract class Criatura extends Actor {
 
     public abstract boolean puedeRealizarAtaque4En(Criatura otro);
 
-    protected double recibirDaño(Criatura atacante) {
-        double[] calculoAtaque = calcularAtaque(atacante);
+    protected double recibirDaño(Criatura atacante, int ataque) {
+        double[] calculoAtaque = calcularAtaque(atacante, ataque);
 
         int daño = (int)calculoAtaque[0];
         double efectividad = calculoAtaque[1];
@@ -162,16 +162,16 @@ public abstract class Criatura extends Actor {
         return efectividad;
     }
 
-    private double[] calcularAtaque(Criatura atacante) {
+    private double[] calcularAtaque(Criatura atacante, int ataque) {
         Random random = new Random();
-        double ataqueContraDefensa = atacante.getAtaque()/this.defensa;
-        double randomNumber = random.nextInt(5);
+        double ataqueContraDefensa = ataque/this.defensa;
+        double randomNumber = random.nextInt(4) + 1;
         double efectividad = calcularEfectividad(atacante);
         double daño = 2*(1+ataqueContraDefensa)*randomNumber*efectividad;
         return (new double[] {daño, efectividad});
     }
 
-    private double calcularEfectividad(Criatura atacante) {
+    protected double calcularEfectividad(Criatura atacante) {
         if (this.elemento == "Fuego" && atacante.getElemento() == "Agua")
             return 1.25;
         if (this.elemento == "Agua" && atacante.getElemento() == "Fuego")
@@ -242,12 +242,12 @@ public abstract class Criatura extends Actor {
         ;
     }
 
-    private void actualizarMensajeAtaque(double efectividad) {
-        String mensajeAtaque = this.nombre + " ha usado " + this.nombresAtaque[0] + "\n";
+    protected void actualizarMensajeAtaque(double efectividad, int numeroAtaque) {
+        String mensajeAtaque = this.nombre + " ha usado " + this.nombresAtaque[numeroAtaque] + "\n";
         if (efectividad == 1.25)
-            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " ha sido efectivo!";
+            mensajeAtaque = mensajeAtaque + nombresAtaque[numeroAtaque] + " ha sido efectivo!";
         if (efectividad == 0.75)
-            mensajeAtaque = mensajeAtaque + nombresAtaque[0] + " no ha sido efectivo.";
+            mensajeAtaque = mensajeAtaque + nombresAtaque[numeroAtaque] + " no ha sido efectivo.";
 
         this.mensajeAtaque = mensajeAtaque;
         //System.out.print(this.mensajeAtaque);

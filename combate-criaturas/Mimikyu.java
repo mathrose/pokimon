@@ -2,7 +2,7 @@ import greenfoot.GreenfootImage;
 
 public class Mimikyu extends Criatura {
     public Mimikyu(String nombre, boolean imagenEspejada) {
-        super(nombre, 90,40,3,90 , "Psiquico", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+        super(nombre, 90,13,10,10 , "Psiquico", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
                 
 

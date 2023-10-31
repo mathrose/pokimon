@@ -1,6 +1,6 @@
 public class Sylveon extends Criatura {
     public Sylveon(String nombre, boolean imagenEspejada) {
-        super(nombre, 100,40,3,70, "Viento", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+        super(nombre, 100,12,10,10, "Viento", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
     }
 //hola

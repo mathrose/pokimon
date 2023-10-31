@@ -2,7 +2,7 @@ import greenfoot.GreenfootImage;
 
 public class Mew extends Criatura {
     public Mew(String nombre, boolean imagenEspejada) {
-        super(nombre, 100,40,3,100, "Psiquico", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
+        super(nombre, 100,13,7,13, "Psiquico", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
                 new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
                 
 
