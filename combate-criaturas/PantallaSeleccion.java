@@ -12,9 +12,19 @@ public class PantallaSeleccion extends World {
 
     public PantallaSeleccion() {
         super(800, 500, 1);
+
+        agregarCriaturas();
+
+        turnoTexto = new Texto("Ronda 1 | Turno 1", 20, Color.BLACK, Color.WHITE);
+        addObject(turnoTexto, turnoTexto.getImage().getWidth() / 2, turnoTexto.getImage().getHeight() / 2);
+
+        uiAtaques = new UIAtaques(criaturas);
+        addObject(uiAtaques, 400, 400);
+
         GreenfootImage imagenFondo = new GreenfootImage("select.png");
         getBackground().drawImage(imagenFondo, 0, 0);
-        
+
+        ronda();
     }
 
     private void agregarCriaturas() {
@@ -30,5 +40,87 @@ public class PantallaSeleccion extends World {
 
     }
 
-   
+    private void ronda() {
+        ronda++;
+        turno(true);
+    }
+
+    public void turno() {
+        turno++;
+        if (turno >= criaturas.length) {
+            ronda();
+        }
+
+        if (getObjects(criaturas[turno].getClass()).size() != 0){
+            turnoTextoNumero++;
+            //System.out.println(turno + " " + getObjects(criaturas[turno].getClass()).getClass());
+
+            for (int i = 0; i < criaturas.length; i++) {
+                if (getObjects(criaturas[i].getClass()).size() != 0){
+                    criaturas[i].setVisualSeleccionado(false);
+
+                }
+            }
+
+            turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turnoTextoNumero);
+            uiAtaques.asignarCriaturaActual(criaturas[turno]);
+
+        }
+        else {
+            //System.out.println("Criatura " + turno + " existe: " + criaturas[turno].getClass());
+
+            turno();
+
+        }
+
+        if (getObjects(Criatura.class).size() == 1) {
+            System.out.println("Juego terminado");
+        }
+    }
+
+    public void turno(boolean nuevaRonda) {
+        turno = 0;
+        turnoTextoNumero = 0;
+        if (getObjects(criaturas[turno].getClass()).size() != 0){
+            //System.out.println(getObjects(Criatura.class));
+            for (int i = 0; i < criaturas.length; i++) {
+                if (getObjects(criaturas[i].getClass()).size() != 0){
+                    criaturas[i].setVisualSeleccionado(false);
+
+                }
+            }
+
+            turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turnoTextoNumero);
+            uiAtaques.asignarCriaturaActual(criaturas[turno]);
+        }else{
+            //System.out.println("new: Criatura " + turno + " existe: " + criaturas[turno].getClass());
+            turno();
+        }
+        if (getObjects(Criatura.class).size() == 1) {
+            System.out.println("Juego terminado");
+        }
+    }
+
+    private int criaturasVivas() {
+
+        int cantidadDeCriaturasVivas = 0;
+
+        for (int i = 0; i < criaturas.length; i++) {
+
+            if (criaturas[i] != null) {
+                cantidadDeCriaturasVivas++;
+            }
+        }
+
+        return cantidadDeCriaturasVivas;
+    }
+
+    public void click(Criatura c) {
+        if (c != null)
+            uiAtaques.click(c);
+    }
+
+    public void hover(Criatura c) {
+        uiAtaques.hover(c);
+    }
 }
