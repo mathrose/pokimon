@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class mimikyu here.
+ * Write a description of class bbbbb here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class mimikyu extends Actor
+public class bbbbb extends Actor
 {
     /**
-     * Act - do whatever the mimikyu wants to do. This method is called whenever
+     * Act - do whatever the bbbbb wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
