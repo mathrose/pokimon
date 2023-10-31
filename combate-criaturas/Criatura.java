@@ -161,6 +161,20 @@ public abstract class Criatura extends Actor {
         uiInfoCriatura.actualizar();
         return efectividad;
     }
+    
+        protected void recibirVida(Criatura objetivo, int cantidadVida) {
+
+
+        this.vida += cantidadVida;
+
+        // START gestiona la vida, si la curacion supera a la vida maxima.
+        if (this.vida>=objetivo.getVidaMaxima()){
+            this.vida = objetivo.getVidaMaxima();
+            uiInfoCriatura.actualizar();
+        }
+        // END
+        uiInfoCriatura.actualizar();
+    }
 
     private double[] calcularAtaque(Criatura atacante, int ataque) {
         Random random = new Random();
@@ -256,5 +270,9 @@ public abstract class Criatura extends Actor {
     public String getMensajeAtaque() {
 
         return this.mensajeAtaque;
+    }
+    
+    protected void cambiarDescripcion(String texto) {
+        ((PantallaDuelo)getWorld()).uiAtaques.cambiarDescripcion(texto);
     }
 }

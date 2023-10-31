@@ -2,7 +2,7 @@ import greenfoot.*;
 
 public class PantallaDuelo extends World {
     private Texto turnoTexto;
-    private UIAtaques uiAtaques;
+    protected UIAtaques uiAtaques;
     private Criatura[] criaturas = new Criatura[4];
 
     private int ronda = 0;
