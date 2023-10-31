@@ -21,7 +21,7 @@ public class PantallaSeleccion extends World {
         uiAtaques = new UIAtaques(criaturas);
         addObject(uiAtaques, 400, 400);
 
-        GreenfootImage imagenFondo = new GreenfootImage("fondo.png");
+        GreenfootImage imagenFondo = new GreenfootImage("select.png");
         getBackground().drawImage(imagenFondo, 0, 0);
 
         ronda();
