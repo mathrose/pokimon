@@ -27,6 +27,7 @@ public class PantallaDuelo extends World {
         ronda();
 
     }
+
     private void agregarCriaturas() {
         addObject(criaturas[0], 100, 150);
         addObject(criaturas[1], 300, 150);
@@ -44,7 +45,6 @@ public class PantallaDuelo extends World {
         String mensajeAtaque = criaturas[turno].getMensajeAtaque();
         turno++;
 
-
         if (turno >= criaturas.length) {
             uiAtaques.cambiarDescripcion(mensajeAtaque);
 
@@ -58,6 +58,9 @@ public class PantallaDuelo extends World {
             uiAtaques.cambiarColorDescripcion(Color.YELLOW);
             turno();
             return;
+        }
+        else{
+            uiAtaques.cambiarColorDescripcion(Color.BLACK);
         }
 
         if (getObjects(criaturas[turno].getClass()).size() != 0){
@@ -95,6 +98,8 @@ public class PantallaDuelo extends World {
             uiAtaques.cambiarColorDescripcion(Color.YELLOW);
             turno();
             return;
+        }else{
+            uiAtaques.cambiarColorDescripcion(Color.BLACK);
         }
 
         if (getObjects(criaturas[turno].getClass()).size() != 0){
