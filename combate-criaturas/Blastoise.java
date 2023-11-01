@@ -30,11 +30,18 @@ public class Blastoise extends Criatura {
     }
 
     public void atacar3(Criatura otro) {
-        atacar1(otro);
+        this.defensa += 3;
+        actualizarMensajeAtaque(1, 2);
+        ((PantallaDuelo)getWorld()).turno();
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
-        return false;
+        if (otro == this){
+            return true;
+        }else{
+            cambiarDescripcion("El objetivo no es Blastoise");
+            return false;
+        }
     }
 
     //Autodestruccion

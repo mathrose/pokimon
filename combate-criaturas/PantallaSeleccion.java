@@ -40,7 +40,22 @@ public class PantallaSeleccion extends World {
             this.contadorSeleccion++;
         }
         else {
+            
+            //Cambia el mundo
             Greenfoot.setWorld(new PantallaDuelo());
+            String nombreCriatura = this.criaturasSeleccion[contadorSeleccion].getNombre();
+            
+            
+            try
+            {
+                Class test = Class.forName(nombreCriatura);
+            }
+            catch (ClassNotFoundException cnfe)
+            {
+                cnfe.printStackTrace();
+            }
+            
+            
         }
     }
 

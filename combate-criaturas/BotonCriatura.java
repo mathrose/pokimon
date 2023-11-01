@@ -8,7 +8,7 @@ import java.util.Random;
 import greenfoot.*;
 
 public class BotonCriatura extends Actor {
-    private String texto;
+    private String nombre;
     private int size;
     private Color color;
     private Color bgColor;
@@ -25,7 +25,7 @@ public class BotonCriatura extends Actor {
 
     
     public BotonCriatura(String texto, GreenfootImage image) {
-        this.texto = texto;
+        this.nombre = nombre;
         this.size = size;
         this.color = color;
         this.bgColor = Color.LIGHT_GRAY;
@@ -68,13 +68,18 @@ public class BotonCriatura extends Actor {
         }
 
         if (Greenfoot.mouseClicked(this)) {
-            System.out.print(this.texto);
+            System.out.print(this.nombre);
             ((PantallaSeleccion)getWorld()).ubicarEnLista(this);
         }
 
         if (_visualHover != visualHover || _visualSeleccionado != visualSeleccionado) {
             render();
         }
+    }
+    
+    public String getNombre(){
+    
+    return this.nombre;
     }
 
 }
