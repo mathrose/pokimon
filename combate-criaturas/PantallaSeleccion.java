@@ -12,8 +12,9 @@ public class PantallaSeleccion extends World {
 
     public PantallaSeleccion() {
         super(800, 500, 1);
-        GreenfootImage imagenFondo = new GreenfootImage("select.png");
-        getBackground().drawImage(imagenFondo, 0, 0);
+        MyGreenfootImage fondoSeleccion = new MyGreenfootImage(new GreenfootImage("select.png"));
+        fondoSeleccion.scale(800,500);
+        getBackground().drawImage(fondoSeleccion, 0, 0);
         agregarImagenesSeleccion();
         
     }
