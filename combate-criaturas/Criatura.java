@@ -21,6 +21,8 @@ public abstract class Criatura extends Actor {
     protected String mensajeAtaque = "";
     protected String nombreAtaqueActual = "";
 
+    protected int stun = 0;
+
     protected UIInfoCriatura uiInfoCriatura;
 
     private boolean visualHover;
@@ -49,6 +51,7 @@ public abstract class Criatura extends Actor {
         this.imagenOriginal.scale(170, 170);
 
         this.uiInfoCriatura = new UIInfoCriatura(this);
+        this.stun = 0;
     }
 
     @Override
@@ -161,12 +164,10 @@ public abstract class Criatura extends Actor {
         uiInfoCriatura.actualizar();
         return efectividad;
     }
-    
-        protected void recibirVida(Criatura objetivo, int cantidadVida) {
 
+    protected void recibirVida(Criatura objetivo, int cantidadVida) {
 
         this.vida += cantidadVida;
-
         // START gestiona la vida, si la curacion supera a la vida maxima.
         if (this.vida>=objetivo.getVidaMaxima()){
             this.vida = objetivo.getVidaMaxima();
@@ -239,6 +240,10 @@ public abstract class Criatura extends Actor {
         return nombre;
     }
 
+    public String getNombre() {
+        return this.nombre;
+    }
+
     public String[] getNombresAtaque() {
         return nombresAtaque;
     }
@@ -267,12 +272,42 @@ public abstract class Criatura extends Actor {
         //System.out.print(this.mensajeAtaque);
     }
 
-    public String getMensajeAtaque() {
+    public void setMensajeStun() {
+        this.mensajeAtaque = (this.nombre + " está estuneado por: " + getTurnosStun() + " turnos");
+    }
 
+    public String getMensajeAtaque() {
         return this.mensajeAtaque;
     }
-    
+
     protected void cambiarDescripcion(String texto) {
         ((PantallaDuelo)getWorld()).uiAtaques.cambiarDescripcion(texto);
     }
+
+    protected void stunearCriatura(int n) {
+        this.stun = n;
+    }
+
+    protected void pasarTurnoStun() {
+        if (this.stun > 0) {
+            this.stun -= 1;
+        }else{
+            this.stun = 0;
+        }
+
+    }
+
+    public boolean getStun() {
+        if (stun != 0 ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public int getTurnosStun() {
+        return stun+1;
+    }
+
 }

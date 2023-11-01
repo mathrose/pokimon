@@ -48,9 +48,19 @@ public class PantallaDuelo extends World {
     public void turno() {
         String mensajeAtaque = criaturas[turno].getMensajeAtaque();
         turno++;
+
+        //Verifica si la criatura estaba stuneada, saltea la ronda y la desestunea.
+
         if (turno >= criaturas.length) {
             uiAtaques.cambiarDescripcion(mensajeAtaque);
             ronda();
+        }
+
+        if (criaturas[turno].getStun() == true) {
+            criaturas[turno].pasarTurnoStun();
+            criaturas[turno].setMensajeStun();
+            turno();
+            return;
         }
 
         if (getObjects(criaturas[turno].getClass()).size() != 0){
@@ -67,13 +77,13 @@ public class PantallaDuelo extends World {
         else {
             turno();
         }
-        
+
         //verifica si todos los pokemons son del mismo equipo y da fin a la pelea.
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == true)) {
             uiAtaques.cambiarDescripcion("Gana el equipo rojo!");
         }
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == false)) {
-           uiAtaques.cambiarDescripcion("Gana el equipo azul!");
+            uiAtaques.cambiarDescripcion("Gana el equipo azul!");
         }
     }
 
@@ -97,22 +107,21 @@ public class PantallaDuelo extends World {
          * Como recorrer los objetos activos
          * 
         getObjects(Criatura.class).forEach(criatura -> {
-                    if (criatura.esEquipo1()){
+        if (criatura.esEquipo1()){
 
-                    }
+        }
 
-            });
-        **/
-        
+        });
+         **/
+
         //verifica si todos los pokemons son del mismo equipo y da fin a la pelea.
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == true)) {
             uiAtaques.cambiarDescripcion("Gana el equipo rojo!");
         }
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == false)) {
-           uiAtaques.cambiarDescripcion("Gana el equipo azul!");
+            uiAtaques.cambiarDescripcion("Gana el equipo azul!");
         }
- 
-        
+
     }
     private int criaturasVivas() {
         int cantidadDeCriaturasVivas = 0;
