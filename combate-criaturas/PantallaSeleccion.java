@@ -24,6 +24,7 @@ public class PantallaSeleccion extends World {
         addObject(new BotonCriatura("Glaceon", new GreenfootImage("GlaceonMenu.png")), 403, 340);
         addObject(new BotonCriatura("Leafeon", new GreenfootImage("LeafeonMenu.png")), 498, 340);
         addObject(new BotonCriatura("Delphox", new GreenfootImage("DelphoxMenu.png")), 591, 340);
+        
 
         //Segunda fila
 
@@ -32,6 +33,12 @@ public class PantallaSeleccion extends World {
         addObject(new BotonCriatura("Mimikyu", new GreenfootImage("MimikyuMenu.png")), 403, 430);
         addObject(new BotonCriatura("Espeon", new GreenfootImage("EspeonMenu.png")), 498, 430);
         addObject(new BotonCriatura("Charizard", new GreenfootImage("CharizardMenu.png")), 591, 430);
+        
+        //Marcos de equipo
+        
+        addObject(new MarcoEquipo(new GreenfootImage("MarcoAzul.png"), true), 125, 140);
+        
+        addObject(new MarcoEquipo(new GreenfootImage("MarcoRojo.png"), false), 674, 140);
 
     }
 
@@ -46,22 +53,22 @@ public class PantallaSeleccion extends World {
             
             switch (contadorSeleccion) {
                 case 0:
-                    pos_x = 70;
+                    pos_x = 79;
                     pos_y = 140;
                     equipoAzul = true;
                     break;
                 case 1:
-                    pos_x = 170;
+                    pos_x = 171;
                     pos_y = 140;
                     equipoAzul = true;
                     break;
                 case 2:
-                    pos_x = 627;
+                    pos_x = 636;
                     pos_y = 140;
                     equipoAzul = false;
                     break;
                 case 3:
-                    pos_x = 730;
+                    pos_x = 727;
                     pos_y = 140;
                     equipoAzul = false;
                     break;

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=MarcoEquipo
+comment1.params=image\ esEquipoAzul
+comment1.target=MarcoEquipo(greenfoot.GreenfootImage,\ boolean)
+comment2.params=
+comment2.target=void\ render()
+comment3.params=
+comment3.target=void\ configurar()
+numComments=4
