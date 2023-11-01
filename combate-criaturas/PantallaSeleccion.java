@@ -4,6 +4,7 @@ public class PantallaSeleccion extends World {
     private Texto turnoTexto;
     private UIAtaques uiAtaques;
     private BotonCriatura[] criaturasSeleccion = new BotonCriatura[4];
+    private BotonCriatura[] criaturasSeleccionMenu = new BotonCriatura[4];
     private Criatura[] criaturas = new Criatura[4];
     private int contadorSeleccion = 0;
 
@@ -83,39 +84,39 @@ public class PantallaSeleccion extends World {
             switch (nombreCriatura) { 
                 case "Sylveon":
                     criaturas[contadorSeleccion] = new Sylveon("Sylveon", !equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("SylveonMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("SylveonMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Blastoise":
                     criaturas[contadorSeleccion] = new Blastoise("Blastoise",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("BlastoiseMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("BlastoiseMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Charizard" :
                     criaturas[contadorSeleccion] = new Charizard("Charizard",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("CharizardMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("CharizardMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Mimikyu"   :
                     criaturas[contadorSeleccion] = new Mimikyu("Mimikyu",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("MimikyuMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("MimikyuMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Mew"       :
                     criaturas[contadorSeleccion] = new Mew("Mew",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("MewMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("MewMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Delphox"   :
                     criaturas[contadorSeleccion] = new Delphox("Delphox",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("DelphoxMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("DelphoxMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Espeon"    :
                     criaturas[contadorSeleccion] = new Espeon("Espeon",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("EspeonMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("EspeonMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Glaceon"   :
                     criaturas[contadorSeleccion] = new Glaceon("Glaceon",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("GlaceonMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("GlaceonMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 case "Leafeon"   :
                     criaturas[contadorSeleccion] = new Leafeon("Leafeon",!equipoAzul);
-                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("LeafeonMenu.png"), equipoAzul), pos_x, pos_y);
+                    addObject(new BotonCriatura("Sylveon", new GreenfootImage("LeafeonMenu.png"), equipoAzul,false), pos_x, pos_y);
                     break;
                 default:
                     break;

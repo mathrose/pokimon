@@ -26,7 +26,6 @@ public class MarcoEquipo extends Actor {
                 public void configurar() {
                     if(!esEquipoAzul) {
                         flipHorizontally();
-
                     }
 
                     shadow();
