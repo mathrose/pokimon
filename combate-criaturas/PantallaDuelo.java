@@ -10,9 +10,9 @@ public class PantallaDuelo extends World {
     //El algoritmo diferencia el turno real, que recorre entre los pokemons y verifica si están o no vivos, y el turno que debe mostrar en el texto.
     private int turnoTextoNumero = 0;
 
-    public PantallaDuelo() {
+    public PantallaDuelo(Criatura[] criaturas) {
         super(800, 500, 1);
-
+        this.criaturas = criaturas;
         agregarCriaturas();
 
         turnoTexto = new Texto("Ronda 1 | Turno 1", 20, Color.BLACK, Color.WHITE);
@@ -25,13 +25,11 @@ public class PantallaDuelo extends World {
         getBackground().drawImage(imagenFondo, 0, 0);
 
         ronda();
+        
+
     }
 
     private void agregarCriaturas() {
-        criaturas[0] = new Mimikyu("Mimikyu");
-        criaturas[1] = new Sylveon("Sylveon");
-        criaturas[2] = new Mew("Mew", true);
-        criaturas[3] = new Blastoise("Blastoise", true);
 
         addObject(criaturas[0], 100, 150);
         addObject(criaturas[1], 300, 150);

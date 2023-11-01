@@ -24,7 +24,7 @@ public class BotonCriatura extends Actor {
     private boolean visualSeleccionado;
 
     
-    public BotonCriatura(String texto, GreenfootImage image) {
+    public BotonCriatura(String nombre, GreenfootImage image) {
         this.nombre = nombre;
         this.size = size;
         this.color = color;

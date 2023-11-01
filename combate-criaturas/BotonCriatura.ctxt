@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=BotonCriatura
-comment1.params=texto\ image
+comment1.params=nombre\ image
 comment1.target=BotonCriatura(java.lang.String,\ greenfoot.GreenfootImage)
 comment2.params=
 comment2.target=void\ render()
