@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=BotonDuelo
+comment1.params=nombre\ image
+comment1.target=BotonDuelo(java.lang.String,\ greenfoot.GreenfootImage)
+comment2.params=nombre\ image\ esEquipoAzul
+comment2.target=BotonDuelo(java.lang.String,\ greenfoot.GreenfootImage,\ boolean)
+comment3.params=nombre\ image\ esEquipoAzul\ esClickeable
+comment3.target=BotonDuelo(java.lang.String,\ greenfoot.GreenfootImage,\ boolean,\ boolean)
+comment4.params=
+comment4.target=void\ render()
+comment5.params=
+comment5.target=void\ configurar()
+comment6.params=
+comment6.target=void\ act()
+comment7.params=
+comment7.target=java.lang.String\ getNombre()
+numComments=8
