@@ -23,6 +23,7 @@ public class BotonCriatura extends Actor {
     private boolean visualHover;
     private boolean visualSeleccionado;
 
+    
     public BotonCriatura(String texto, GreenfootImage image) {
         this.texto = texto;
         this.size = size;
@@ -68,6 +69,7 @@ public class BotonCriatura extends Actor {
 
         if (Greenfoot.mouseClicked(this)) {
             System.out.print(this.texto);
+            ((PantallaSeleccion)getWorld()).ubicarEnLista(this);
         }
 
         if (_visualHover != visualHover || _visualSeleccionado != visualSeleccionado) {
