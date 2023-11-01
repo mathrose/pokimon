@@ -14,20 +14,27 @@ public class PantallaSeleccion extends World {
         super(800, 500, 1);
         GreenfootImage imagenFondo = new GreenfootImage("select.png");
         getBackground().drawImage(imagenFondo, 0, 0);
+        agregarImagenesSeleccion();
         
     }
 
-    private void agregarCriaturas() {
-        criaturas[0] = new Blastoise("Blastoise");
-        criaturas[1] = new Sylveon("Sylveon");
-        criaturas[2] = new Mew("Mew", true);
-        criaturas[3] = new Mimikyu("Mimikyu", true);
-
-        addObject(criaturas[0], 100, 150);
-        addObject(criaturas[1], 300, 150);
-        addObject(criaturas[2], 500, 150);
-        addObject(criaturas[3], 700, 150);
-
+    private void agregarImagenesSeleccion() {
+        
+        //Primera fila
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("blastoise_menu.png")), 209, 321);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("charizard_menu.png")), 306, 321);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("glaceon_menu.png")), 403, 321);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("leafeon_menu.png")), 498, 321);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("delphox_menu.png")), 591, 321);
+        
+        //Segunda fila
+        
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("sylveon_menu.png")), 209, 416);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("mew_menu.png")), 306, 416);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("mimikyu_menu.png")), 403, 416);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("charizard_menu.png")), 498, 416);
+        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("charizard_menu.png")), 591, 416);
+        
     }
 
    
