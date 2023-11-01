@@ -21,19 +21,19 @@ public class PantallaSeleccion extends World {
     private void agregarImagenesSeleccion() {
         
         //Primera fila
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("blastoise_menu.png")), 209, 321);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("charizard_menu.png")), 306, 321);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("glaceon_menu.png")), 403, 321);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("leafeon_menu.png")), 498, 321);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("delphox_menu.png")), 591, 321);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("blastoise_menu.png")), 209, 321);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("charizard_menu.png")), 306, 321);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("glaceon_menu.png")), 403, 321);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("leafeon_menu.png")), 498, 321);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("delphox_menu.png")), 591, 321);
         
         //Segunda fila
         
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("sylveon_menu.png")), 209, 416);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("mew_menu.png")), 306, 416);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("mimikyu_menu.png")), 403, 416);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("charizard_menu.png")), 498, 416);
-        addObject(new BotonBlastoise("Blastoise", new GreenfootImage("charizard_menu.png")), 591, 416);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("sylveon_menu.png")), 209, 416);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("mew_menu.png")), 306, 416);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("mimikyu_menu.png")), 403, 416);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("charizard_menu.png")), 498, 416);
+        addObject(new BotonCriatura("Blastoise", new GreenfootImage("charizard_menu.png")), 591, 416);
         
     }
 

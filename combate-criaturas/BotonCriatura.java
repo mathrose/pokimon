@@ -3,7 +3,7 @@ import greenfoot.Color;
 import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
 
-public class BotonBlastoise extends Actor {
+public class BotonCriatura extends Actor {
     private String texto;
     private int size;
     private Color color;
@@ -16,7 +16,7 @@ public class BotonBlastoise extends Actor {
     
     private GreenfootImage imagenOriginal;
 
-    public BotonBlastoise(String texto, GreenfootImage image) {
+    public BotonCriatura(String texto, GreenfootImage image) {
         this.texto = texto;
         this.size = size;
         this.color = color;
