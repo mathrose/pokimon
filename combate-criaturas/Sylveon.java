@@ -1,7 +1,7 @@
 public class Sylveon extends Criatura {
     public Sylveon(String nombre, boolean imagenEspejada) {
-        super(nombre, 100,12,10,10, "Viento", new String[] { "Placaje", "Luz lunar", "- Vacío -", "- Vacío -" }, imagenEspejada,
-            new String[] { "Causa un daño moderado a un enemigo", "Regenera vida a si mismo, o a un aliado", "-", "-" });
+        super(nombre, 100,12,10,10, "Viento", new String[] { "Placaje", "Luz lunar", "Voz Cautivadora", "Sinfonia de Latigazos" }, imagenEspejada,
+            new String[] { "Causa un daño moderado a un enemigo", "Regenera vida a si mismo, o a un aliado", "La criatura rival queda aturdida durante 1 turno", "Realiza multiples ataques de placaje" });
     }
     //hola
 

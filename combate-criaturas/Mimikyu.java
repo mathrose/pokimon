@@ -2,8 +2,8 @@ import greenfoot.GreenfootImage;
 
 public class Mimikyu extends Criatura {
     public Mimikyu(String nombre, boolean imagenEspejada) {
-        super(nombre, 90,13,10,10 , "Psiquico", new String[] { "Placaje", "- Vacío -", "- Vacío -", "- Vacío -" }, imagenEspejada,
-                new String[] { "Causa un daño moderado a un enemigo", "-", "-", "-" });
+        super(nombre, 90,13,10,10 , "Psiquico", new String[] { "Placaje", "Perplejo", "Copión", "Espanto" }, imagenEspejada,
+                new String[] { "Causa un daño moderado a un enemigo", "Los pokemones del oponente se realizan un placaje mutuamente", "Realiza el mismo daño que el que reciba en el siguiente turno a quien lo ataque", "Reduce la defensa de sus rivales en un 20%" });
                 
 
     }
