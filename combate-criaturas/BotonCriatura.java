@@ -59,7 +59,7 @@ public class BotonCriatura extends Actor {
                     if (visualHover) {
                         scaleToRatio(1.15);
                         if ((esEquipoRojo == false) && (esEquipoAzul == false)) {
-                            highlight(Color.BLACK);
+                            highlight(Color.CYAN);
                         }
                     }
                     if (visualSeleccionado) {
