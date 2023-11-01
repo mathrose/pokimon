@@ -3,7 +3,7 @@ import greenfoot.*;
 public class PantallaSeleccion extends World {
     private Texto turnoTexto;
     private UIAtaques uiAtaques;
-    private Criatura[] criaturas = new Criatura[4];
+    private BotonCriatura[] criaturasSeleccion = new BotonCriatura[4];
 
     private int ronda = 0;
     private int turno = 0;
@@ -38,7 +38,9 @@ public class PantallaSeleccion extends World {
         
     }
     
-    
+    public void seleccionarEquipo(int n, BotonCriatura criaturaSeleccion){
+        this.criaturasSeleccion[n] = criaturaSeleccion;
+    }
 
 
 }
