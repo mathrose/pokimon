@@ -25,24 +25,25 @@ public class PantallaSeleccion extends World {
         addObject(new BotonCriatura("Glaceon", new GreenfootImage("GlaceonMenu.png")), 403, 340);
         addObject(new BotonCriatura("Leafeon", new GreenfootImage("LeafeonMenu.png")), 498, 340);
         addObject(new BotonCriatura("Delphox", new GreenfootImage("DelphoxMenu.png")), 591, 340);
-        
 
         //Segunda fila
-
         addObject(new BotonCriatura("Sylveon", new GreenfootImage("SylveonMenu.png")), 209, 430);
         addObject(new BotonCriatura("Mew", new GreenfootImage("MewMenu.png")), 306, 430);
         addObject(new BotonCriatura("Mimikyu", new GreenfootImage("MimikyuMenu.png")), 403, 430);
         addObject(new BotonCriatura("Espeon", new GreenfootImage("EspeonMenu.png")), 498, 430);
         addObject(new BotonCriatura("Charizard", new GreenfootImage("CharizardMenu.png")), 591, 430);
-        
+
         //Marcos de equipo
-        
+
         addObject(new MarcoEquipo(new GreenfootImage("MarcoAzul.png"), true), 125, 140);
-        
         addObject(new MarcoEquipo(new GreenfootImage("MarcoRojo.png"), false), 674, 140);
 
-    }
+        //Boton duelo
+        GreenfootImage botonDuelo = new GreenfootImage("BotonDuelo.png");
+        botonDuelo.scale(300,300);
+        addObject(new BotonDuelo("Boton Duelo", botonDuelo),400,148);
 
+    }
     public void ubicarEnLista(BotonCriatura criaturaSeleccion) {
         if(contadorSeleccion <= 3){
             this.criaturasSeleccion[contadorSeleccion] = criaturaSeleccion;
@@ -51,7 +52,7 @@ public class PantallaSeleccion extends World {
             int pos_x;
             int pos_y;
             boolean equipoAzul;
-            
+
             switch (contadorSeleccion) {
                 case 0:
                     pos_x = 79;
@@ -80,7 +81,7 @@ public class PantallaSeleccion extends World {
                     break;
             }
             System.out.print(pos_x);
-            
+
             switch (nombreCriatura) { 
                 case "Sylveon":
                     criaturas[contadorSeleccion] = new Sylveon("Sylveon", !equipoAzul);
@@ -123,18 +124,18 @@ public class PantallaSeleccion extends World {
             }
             this.contadorSeleccion++;
         }
-        else {
-            //Agregar boton lets fight, con funcion interna de activacion
-            //Cambia el mundo
+    }
+
+    public void empezarDuelo() {
+        //Agregar boton lets fight, con funcion interna de activacion
+        //Cambia el mundo
+        if (contadorSeleccion > 3){
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
-            
-
-            
-
         }
     }
 
     public int getContadorSeleccion() {
+        
         return this.contadorSeleccion;
     }
 
