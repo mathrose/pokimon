@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=PantallaSeleccion()
 comment2.params=
 comment2.target=void\ agregarImagenesSeleccion()
-numComments=3
+comment3.params=n\ criaturaSeleccion
+comment3.target=void\ seleccionarEquipo(int,\ BotonCriatura)
+numComments=4
