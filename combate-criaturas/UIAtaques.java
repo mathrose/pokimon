@@ -67,7 +67,12 @@ public class UIAtaques extends Actor {
     }
     
     public void cambiarDescripcion(String texto) {
-        descripcion.setText(texto);
+        this.descripcion.setText(texto);
+        cambiarColorDescripcion(Color.BLACK);
+    }
+    
+    public void cambiarColorDescripcion(Color color) {
+        this.descripcion.setColor(color);
     }
 
     public void hover(Criatura c) {

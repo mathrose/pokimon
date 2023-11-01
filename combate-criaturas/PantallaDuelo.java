@@ -25,12 +25,9 @@ public class PantallaDuelo extends World {
         getBackground().drawImage(imagenFondo, 0, 0);
 
         ronda();
-        
 
     }
-
     private void agregarCriaturas() {
-
         addObject(criaturas[0], 100, 150);
         addObject(criaturas[1], 300, 150);
         addObject(criaturas[2], 500, 150);
@@ -47,16 +44,18 @@ public class PantallaDuelo extends World {
         String mensajeAtaque = criaturas[turno].getMensajeAtaque();
         turno++;
 
-        //Verifica si la criatura estaba stuneada, saltea la ronda y la desestunea.
 
         if (turno >= criaturas.length) {
             uiAtaques.cambiarDescripcion(mensajeAtaque);
+
             ronda();
         }
 
+        //Verifica si la criatura estaba stuneada, saltea la ronda y reduce el contador de stun.
         if (criaturas[turno].getStun() == true) {
             criaturas[turno].pasarTurnoStun();
             criaturas[turno].setMensajeStun();
+            uiAtaques.cambiarColorDescripcion(Color.YELLOW);
             turno();
             return;
         }
@@ -71,6 +70,7 @@ public class PantallaDuelo extends World {
             turnoTexto.actualizarTexto("Ronda " + ronda + " | Turno " + turnoTextoNumero);
             uiAtaques.asignarCriaturaActual(criaturas[turno]);
             uiAtaques.cambiarDescripcion(mensajeAtaque);
+
         }
         else {
             turno();
@@ -88,6 +88,15 @@ public class PantallaDuelo extends World {
     public void turno(boolean nuevaRonda) {
         turno = 0;
         turnoTextoNumero = 0;
+
+        if (criaturas[turno].getStun() == true) {
+            criaturas[turno].pasarTurnoStun();
+            criaturas[turno].setMensajeStun();
+            uiAtaques.cambiarColorDescripcion(Color.YELLOW);
+            turno();
+            return;
+        }
+
         if (getObjects(criaturas[turno].getClass()).size() != 0){
             for (int i = 0; i < criaturas.length; i++) {
                 if (getObjects(criaturas[i].getClass()).size() != 0){
@@ -121,6 +130,7 @@ public class PantallaDuelo extends World {
         }
 
     }
+
     private int criaturasVivas() {
         int cantidadDeCriaturasVivas = 0;
         for (int i = 0; i < criaturas.length; i++) {
