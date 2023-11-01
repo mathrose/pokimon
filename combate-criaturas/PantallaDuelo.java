@@ -28,10 +28,10 @@ public class PantallaDuelo extends World {
     }
 
     private void agregarCriaturas() {
-        criaturas[0] = new Blastoise("Blastoise");
+        criaturas[0] = new Mimikyu("Mimikyu");
         criaturas[1] = new Sylveon("Sylveon");
         criaturas[2] = new Mew("Mew", true);
-        criaturas[3] = new Mimikyu("Mimikyu", true);
+        criaturas[3] = new Blastoise("Blastoise", true);
 
         addObject(criaturas[0], 100, 150);
         addObject(criaturas[1], 300, 150);
