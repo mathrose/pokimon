@@ -3,6 +3,10 @@ import greenfoot.Color;
 import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
 
+import java.util.List;
+import java.util.Random;
+import greenfoot.*;
+
 public class BotonCriatura extends Actor {
     private String texto;
     private int size;
@@ -15,6 +19,9 @@ public class BotonCriatura extends Actor {
     private int forceHeight;
     
     private GreenfootImage imagenOriginal;
+    
+    private boolean visualHover;
+    private boolean visualSeleccionado;
 
     public BotonCriatura(String texto, GreenfootImage image) {
         this.texto = texto;
@@ -26,8 +33,46 @@ public class BotonCriatura extends Actor {
     }
 
     public void render() {
+            MyGreenfootImage nuevaImagen = new MyGreenfootImage(imagenOriginal) {
+                public void configurar() {
+                    if (visualHover) {
+                        scaleToRatio(1.15);
+                    }
+                    if (visualSeleccionado) {
+                        highlight();
+                    }
+                    shadow();
+                }
+            };
+
+    setImage(nuevaImagen);
+    }
     
-    setImage(imagenOriginal);
+    
+    public void act() {
+        boolean _visualHover = visualHover;
+        boolean _visualSeleccionado = visualSeleccionado;
+
+        MouseInfo m = Greenfoot.getMouseInfo();
+
+        // TODO: detecta el mouse-over, no tocar
+        if (m != null) {
+            List<Actor> actor = getWorld().getObjectsAt(m.getX(), m.getY(), Actor.class);
+
+            if (actor.size() > 0 && actor.get(0) == this) {
+                visualHover = true;
+            } else {
+                visualHover = false;
+            }
+        }
+
+        if (Greenfoot.mouseClicked(this)) {
+            System.out.print(this.texto);
+        }
+
+        if (_visualHover != visualHover || _visualSeleccionado != visualSeleccionado) {
+            render();
+        }
     }
 
 }
