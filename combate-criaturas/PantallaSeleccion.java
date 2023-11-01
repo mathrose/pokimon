@@ -116,7 +116,7 @@ public class PantallaSeleccion extends World {
             this.contadorSeleccion++;
         }
         else {
-
+            //Agregar boton lets fight, con funcion interna de activacion
             //Cambia el mundo
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
             

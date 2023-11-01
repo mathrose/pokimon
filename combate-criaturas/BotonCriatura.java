@@ -67,6 +67,7 @@ public class BotonCriatura extends Actor {
                     }
 
                     if (esEquipoAzul == true) {
+                        flipHorizontally();
                         highlight(Color.BLUE);
                     }
                     if (esEquipoRojo == true) {
