@@ -29,6 +29,7 @@ public abstract class Criatura extends Actor {
     private boolean visualSeleccionado;
 
     private MyGreenfootImage imagenOriginal;
+    private MyGreenfootImage imagenStun;
 
     public Criatura(String nombre, int vida, int ataque,int defensa, int velocidad , String elemento, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
         this.nombre = nombre;
@@ -50,6 +51,15 @@ public abstract class Criatura extends Actor {
         this.imagenOriginal = new MyGreenfootImage(getImage());
         this.imagenOriginal.scale(170, 170);
 
+        try {
+            this.imagenStun = new MyGreenfootImage(new GreenfootImage(this.nombre + "Stun.png"));
+        } catch(java.lang.IllegalArgumentException err) {
+            this.imagenStun = imagenOriginal;
+        }
+        
+        this.imagenStun.scale(170, 170);
+        
+        
         this.uiInfoCriatura = new UIInfoCriatura(this);
         this.stun = 0;
     }
@@ -91,7 +101,15 @@ public abstract class Criatura extends Actor {
     }
 
     public void render() {
-        MyGreenfootImage nuevaImagen = new MyGreenfootImage(imagenOriginal) {
+        MyGreenfootImage imagenParaRenderizar;
+        
+        //Verifica si hay que renderizar la imagen stun o la normal.
+        if(this.getStun() == true) {
+            imagenParaRenderizar = imagenStun;
+        }else{
+            imagenParaRenderizar = imagenOriginal;
+        }
+        MyGreenfootImage nuevaImagen = new MyGreenfootImage(imagenParaRenderizar) {
                 public void configurar() {
                     if (!equipo1) {
                         flipHorizontally();
@@ -108,6 +126,8 @@ public abstract class Criatura extends Actor {
 
         setImage(nuevaImagen);
     }
+    
+    
 
     public void atacar1(Criatura otro) {
         double efectividad = otro.recibirDaño(this, this.ataque);
@@ -291,6 +311,8 @@ public abstract class Criatura extends Actor {
     protected void pasarTurnoStun() {
         if (this.stun > 0) {
             this.stun -= 1;
+            
+            
         }else{
             this.stun = 0;
         }

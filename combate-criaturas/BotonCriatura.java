@@ -68,7 +68,7 @@ public class BotonCriatura extends Actor {
         }
 
         if (Greenfoot.mouseClicked(this)) {
-            System.out.print(this.texto);
+            System.out.print(this.nombre);
             ((PantallaSeleccion)getWorld()).ubicarEnLista(this);
         }
 
