@@ -1,7 +1,19 @@
 #BlueJ class context
-comment0.target=mew
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ mew\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ mew\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment0.target=Mew
+comment1.params=nombre\ imagenEspejada
+comment1.target=Mew(java.lang.String,\ boolean)
+comment2.params=nombre
+comment2.target=Mew(java.lang.String)
+comment3.params=otro
+comment3.target=void\ atacar2(Criatura)
+comment4.params=otro
+comment4.target=boolean\ puedeRealizarAtaque2En(Criatura)
+comment5.params=otro
+comment5.target=void\ atacar3(Criatura)
+comment6.params=otro
+comment6.target=boolean\ puedeRealizarAtaque3En(Criatura)
+comment7.params=otro
+comment7.target=void\ atacar4(Criatura)
+comment8.params=otro
+comment8.target=boolean\ puedeRealizarAtaque4En(Criatura)
+numComments=9

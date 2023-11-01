@@ -1,9 +1,9 @@
 #BlueJ class context
-comment0.target=Charizard
+comment0.target=Sylveon
 comment1.params=nombre\ imagenEspejada
-comment1.target=Charizard(java.lang.String,\ boolean)
+comment1.target=Sylveon(java.lang.String,\ boolean)
 comment2.params=nombre
-comment2.target=Charizard(java.lang.String)
+comment2.target=Sylveon(java.lang.String)
 comment3.params=otro
 comment3.target=void\ atacar2(Criatura)
 comment4.params=otro
