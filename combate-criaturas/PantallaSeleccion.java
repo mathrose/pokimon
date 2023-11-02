@@ -14,6 +14,9 @@ public class PantallaSeleccion extends World {
         fondoSeleccion.scale(800,500);
         getBackground().drawImage(fondoSeleccion, 0, 0);
         agregarImagenesSeleccion();
+        GreenfootSound sound = new GreenfootSound("seleccion.wav");
+        sound.play(); 
+        sound.setVolume(70);
 
     }
 
