@@ -46,8 +46,8 @@ public class PantallaSeleccion extends World {
         addObject(new MarcoEquipo(new GreenfootImage("marcoRojo.png"), false), 674, 140);
 
         //Boton duelo
-        GreenfootImage botonDuelo = new GreenfootImage("BotonDuelo.png");
-        botonDuelo.scale(300,300);
+        GreenfootImage botonDuelo = new GreenfootImage("BotonLuchar.png");
+        botonDuelo.scale(231,48);
         addObject(new BotonDuelo("Boton Duelo", botonDuelo),400,148);
 
     }
