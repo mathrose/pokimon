@@ -157,7 +157,7 @@ public class PantallaSeleccion extends World {
             this.batallasound=batallasound;
             //Greenfoot.delay(200);
             batallasound.play(); 
-            batallasound.setVolume(10);
+            batallasound.setVolume(70);
             batallasound.playLoop();
 
         }
