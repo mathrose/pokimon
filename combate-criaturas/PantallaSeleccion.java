@@ -9,6 +9,7 @@ public class PantallaSeleccion extends World {
     private int contadorSeleccion = 0;
     GreenfootSound sound = new GreenfootSound("seleccion.wav");
     GreenfootSound batallasound = new GreenfootSound("batalla.wav");
+    GreenfootSound finsound = new GreenfootSound("menufin.wav");
 
     public PantallaSeleccion() {
         super(800, 500, 1);
@@ -138,7 +139,11 @@ public class PantallaSeleccion extends World {
         if (contadorSeleccion > 3){
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
             sound.pause();
+
+            this.finsound=finsound;
+             finsound.play(); 
             this.batallasound=batallasound;
+            Greenfoot.delay(200);
             batallasound.play(); 
             batallasound.setVolume(70);
             batallasound.playLoop();
