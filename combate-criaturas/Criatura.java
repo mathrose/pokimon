@@ -56,10 +56,9 @@ public abstract class Criatura extends Actor {
         } catch(java.lang.IllegalArgumentException err) {
             this.imagenStun = imagenOriginal;
         }
-        
+
         this.imagenStun.scale(170, 170);
-        
-        
+
         this.uiInfoCriatura = new UIInfoCriatura(this);
         this.stun = 0;
     }
@@ -102,7 +101,7 @@ public abstract class Criatura extends Actor {
 
     public void render() {
         MyGreenfootImage imagenParaRenderizar;
-        
+
         //Verifica si hay que renderizar la imagen stun o la normal.
         if(this.getStun() == true) {
             imagenParaRenderizar = imagenStun;
@@ -126,8 +125,6 @@ public abstract class Criatura extends Actor {
 
         setImage(nuevaImagen);
     }
-    
-    
 
     public void atacar1(Criatura otro) {
         double efectividad = otro.recibirDaño(this, this.ataque);
@@ -311,8 +308,7 @@ public abstract class Criatura extends Actor {
     protected void pasarTurnoStun() {
         if (this.stun > 0) {
             this.stun -= 1;
-            
-            
+
         }else{
             this.stun = 0;
         }
@@ -331,5 +327,13 @@ public abstract class Criatura extends Actor {
     public int getTurnosStun() {
         return stun+1;
     }
+
+    public int perderPuntosDeAtaque(int lossAtac){
+        this.ataque-=lossAtac;
+        return this.ataque;}
+
+    public int perderPuntosDeDefensa(int lossDef){
+        this.ataque-=lossDef;
+        return this.ataque;}
 
 }

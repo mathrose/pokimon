@@ -30,7 +30,7 @@ public class Blastoise extends Criatura {
     }
 
     public void atacar3(Criatura otro) {
-        this.defensa += 3;
+        this.defensa += 20;
         actualizarMensajeAtaque(1, 2);
         ((PantallaDuelo)getWorld()).turno();
     }

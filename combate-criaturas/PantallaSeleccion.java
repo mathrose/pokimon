@@ -35,8 +35,8 @@ public class PantallaSeleccion extends World {
 
         //Marcos de equipo
 
-        addObject(new MarcoEquipo(new GreenfootImage("MarcoAzul.png"), true), 125, 140);
-        addObject(new MarcoEquipo(new GreenfootImage("MarcoRojo.png"), false), 674, 140);
+        addObject(new MarcoEquipo(new GreenfootImage("marcoAzul.png"), true), 125, 140);
+        addObject(new MarcoEquipo(new GreenfootImage("marcoRojo.png"), false), 674, 140);
 
         //Boton duelo
         GreenfootImage botonDuelo = new GreenfootImage("BotonDuelo.png");
