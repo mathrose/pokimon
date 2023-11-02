@@ -7,6 +7,8 @@ public class PantallaSeleccion extends World {
     private BotonCriatura[] criaturasSeleccionMenu = new BotonCriatura[4];
     private Criatura[] criaturas = new Criatura[4];
     private int contadorSeleccion = 0;
+    GreenfootSound sound = new GreenfootSound("seleccion.wav");
+    GreenfootSound batallasound = new GreenfootSound("batalla.wav");
 
     public PantallaSeleccion() {
         super(800, 500, 1);
@@ -14,9 +16,10 @@ public class PantallaSeleccion extends World {
         fondoSeleccion.scale(800,500);
         getBackground().drawImage(fondoSeleccion, 0, 0);
         agregarImagenesSeleccion();
-        GreenfootSound sound = new GreenfootSound("seleccion.wav");
+        this.sound=sound;
         sound.play(); 
         sound.setVolume(70);
+        sound.playLoop();
 
     }
 
@@ -47,6 +50,7 @@ public class PantallaSeleccion extends World {
         addObject(new BotonDuelo("Boton Duelo", botonDuelo),400,148);
 
     }
+
     public void ubicarEnLista(BotonCriatura criaturaSeleccion) {
         if(contadorSeleccion <= 3){
             this.criaturasSeleccion[contadorSeleccion] = criaturaSeleccion;
@@ -133,11 +137,17 @@ public class PantallaSeleccion extends World {
         //Cambia el mundo
         if (contadorSeleccion > 3){
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
+            sound.pause();
+            this.batallasound=batallasound;
+            batallasound.play(); 
+            batallasound.setVolume(70);
+            batallasound.playLoop();
+
         }
     }
 
     public int getContadorSeleccion() {
-        
+
         return this.contadorSeleccion;
     }
 

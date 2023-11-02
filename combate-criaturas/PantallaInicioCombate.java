@@ -12,6 +12,7 @@ public class PantallaInicioCombate extends World {
 
     public PantallaInicioCombate() {
         super(800, 500, 1);
+         
 
         agregarCriaturas();
 
@@ -23,6 +24,8 @@ public class PantallaInicioCombate extends World {
 
         GreenfootImage imagenFondo = new GreenfootImage("fondo.png");
         getBackground().drawImage(imagenFondo, 0, 0);
+        
+    
 
         ronda();
     }
