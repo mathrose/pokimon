@@ -27,14 +27,16 @@ public class Sylveon extends Criatura {
 
                 return true;
             }}
-           cambiarDescripcion("El objetivo es de otro equipo");
+        cambiarDescripcion("El objetivo es de otro equipo");
         return false;
     }
 
     public void atacar3(Criatura otro) {
+
         otro.stunearCriatura(3);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
+
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
@@ -42,10 +44,15 @@ public class Sylveon extends Criatura {
     }
 
     public void atacar4(Criatura otro) {
-        atacar1(otro);
+        int i=0;
+        while(i<5){ double efectividad = otro.recibirDaño(this, this.ataque);
+            actualizarMensajeAtaque(efectividad, 0);
+            ((PantallaDuelo)getWorld()).turno();
+        i++;}
+            
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {
-        return false;
+        return true;
     }
 }
