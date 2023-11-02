@@ -10,6 +10,9 @@ public class PantallaSeleccion extends World {
     GreenfootSound sound = new GreenfootSound("seleccion.wav");
     GreenfootSound batallasound = new GreenfootSound("batalla.wav");
     GreenfootSound finsound = new GreenfootSound("menufin.wav");
+    GreenfootSound letsfightsound = new GreenfootSound("lets-fight.wav");
+    GreenfootSound selected_sfx = new GreenfootSound("click-sfx_2.mp3");
+
 
     public PantallaSeleccion() {
         super(800, 500, 1);
@@ -19,7 +22,7 @@ public class PantallaSeleccion extends World {
         agregarImagenesSeleccion();
         this.sound=sound;
         sound.play(); 
-        sound.setVolume(70);
+        sound.setVolume(0);
         sound.playLoop();
 
     }
@@ -94,38 +97,47 @@ public class PantallaSeleccion extends World {
                 case "Sylveon":
                     criaturas[contadorSeleccion] = new Sylveon("Sylveon", !equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("SylveonMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Blastoise":
                     criaturas[contadorSeleccion] = new Blastoise("Blastoise",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("BlastoiseMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Charizard" :
                     criaturas[contadorSeleccion] = new Charizard("Charizard",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("CharizardMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Mimikyu"   :
                     criaturas[contadorSeleccion] = new Mimikyu("Mimikyu",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("MimikyuMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Mew"       :
                     criaturas[contadorSeleccion] = new Mew("Mew",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("MewMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Delphox"   :
                     criaturas[contadorSeleccion] = new Delphox("Delphox",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("DelphoxMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Espeon"    :
                     criaturas[contadorSeleccion] = new Espeon("Espeon",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("EspeonMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Glaceon"   :
                     criaturas[contadorSeleccion] = new Glaceon("Glaceon",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("GlaceonMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 case "Leafeon"   :
                     criaturas[contadorSeleccion] = new Leafeon("Leafeon",!equipoAzul);
                     addObject(new BotonCriatura("Sylveon", new GreenfootImage("LeafeonMenu.png"), equipoAzul,false), pos_x, pos_y);
+                    selected_sfx.play();
                     break;
                 default:
                     break;
@@ -139,13 +151,13 @@ public class PantallaSeleccion extends World {
         if (contadorSeleccion > 3){
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
             sound.pause();
-
+            letsfightsound.play();
             this.finsound=finsound;
-             finsound.play(); 
+            //finsound.play(); 
             this.batallasound=batallasound;
-            Greenfoot.delay(200);
+            //Greenfoot.delay(200);
             batallasound.play(); 
-            batallasound.setVolume(70);
+            batallasound.setVolume(10);
             batallasound.playLoop();
 
         }

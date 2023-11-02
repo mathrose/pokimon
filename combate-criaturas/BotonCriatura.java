@@ -26,6 +26,7 @@ public class BotonCriatura extends Actor {
     private boolean poseeEquipo = false;
     private boolean esEquipoRojo = false;
     private boolean esEquipoAzul = false;
+    GreenfootSound clicksound = new GreenfootSound("click-sound.mp3");
 
     public BotonCriatura(String nombre, GreenfootImage image) {
         this.nombre = nombre;
@@ -78,7 +79,7 @@ public class BotonCriatura extends Actor {
                 public void configurar() {
                     if(esClickeable){
                         if (visualHover) {
-
+                            clicksound.play();
                             scaleToRatio(1.15);
                             if ((esEquipoRojo == false) && (esEquipoAzul == false)) {
                                 highlight(Color.CYAN);
