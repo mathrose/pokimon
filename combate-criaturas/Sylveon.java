@@ -18,7 +18,7 @@ public class Sylveon extends Criatura {
         System.out.print(vidaRecuperada);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
-        this.psyco=psyco;
+       
         psyco.play(); 
         psyco.setVolume(50);
     } 
@@ -42,7 +42,7 @@ public class Sylveon extends Criatura {
         otro.stunearCriatura(3);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
-        this.psyco2=psyco2;
+        
         psyco2.play(); 
         psyco.setVolume(50);
 
@@ -53,16 +53,18 @@ public class Sylveon extends Criatura {
     }
 
     public void atacar4(Criatura otro) {
+         
         int i=0;
         while(i<5){ double efectividad = otro.recibirDaño(this, this.ataque);
             actualizarMensajeAtaque(efectividad, 0);
             ((PantallaDuelo)getWorld()).turno();
             i++;
-            this.multihit=multihit;
-        multihit.play(); 
-        multihit.setVolume(50);
+            
+      
 
        }
+        multihit.play(); 
+        multihit.setVolume(50);
         
     }
 

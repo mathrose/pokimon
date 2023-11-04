@@ -14,6 +14,13 @@ public abstract class Criatura extends Actor {
 
     GreenfootSound psyco2 = new GreenfootSound("psyco2.wav");
     GreenfootSound multihit = new GreenfootSound("multihit.wav");
+    
+    GreenfootSound rugido = new GreenfootSound("rugido.wav");
+    GreenfootSound llamarada = new GreenfootSound("llamarada.wav");
+    GreenfootSound llamarada2 = new GreenfootSound("llamarada2.wav");
+    GreenfootSound llamarada3 = new GreenfootSound("llamarada3.wav");
+    
+    
 
     protected final boolean equipo1;
     //atributos de la criatura

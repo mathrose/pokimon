@@ -12,10 +12,14 @@ public class Charizard extends Criatura {
     }
 
     public void atacar2(Criatura otro) {
+         ;
+        
         double efectividad = otro.perderPuntosDeAtaque(6);
         actualizarMensajeAtaque(efectividad, 1);
         ((PantallaDuelo)getWorld()).turno();
-
+      
+         rugido.play(); 
+        rugido.setVolume(50);
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
@@ -23,6 +27,10 @@ public class Charizard extends Criatura {
     }
 
     public void atacar3(Criatura otro) {
+        this.llamarada=llamarada;
+        llamarada.play(); 
+        llamarada.setVolume(50);
+
         otro.stunearCriatura(3);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
@@ -31,16 +39,21 @@ public class Charizard extends Criatura {
         ((PantallaDuelo)getWorld()).turno();
 
     }
+
     public boolean puedeRealizarAtaque3En(Criatura otro) {
         return true;
     }
 
-    public void atacar4(Criatura otro) { if (vida<otro.vida){
+    public void atacar4(Criatura otro) {
+        llamarada2.play(); 
+        llamarada.setVolume(50);
+        if (vida<otro.vida){
+
             double efectividad = otro.recibirDaño(this, this.ataque*3);
-        actualizarMensajeAtaque(efectividad, 0);
-        ((PantallaDuelo)getWorld()).turno();} else{  double efectividad = otro.recibirDaño(this, this.ataque*3);
-        actualizarMensajeAtaque(efectividad, 0);
-        ((PantallaDuelo)getWorld()).turno();}
+            actualizarMensajeAtaque(efectividad, 0);
+            ((PantallaDuelo)getWorld()).turno();} else{  double efectividad = otro.recibirDaño(this, this.ataque);
+            actualizarMensajeAtaque(efectividad, 0);
+            ((PantallaDuelo)getWorld()).turno();}
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {
