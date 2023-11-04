@@ -1,6 +1,7 @@
 import greenfoot.*;
 
 public class PantallaInicioCombate extends World {
+   
     private Texto turnoTexto;
     private UIAtaques uiAtaques;
     private Criatura[] criaturas = new Criatura[4];

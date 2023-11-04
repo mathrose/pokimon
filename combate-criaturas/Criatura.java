@@ -9,8 +9,13 @@ public abstract class Criatura extends Actor {
     protected final String[] nombresAtaque;
     protected final String[] detallesAtaque;
 
-    protected final boolean equipo1;
+    GreenfootSound hit = new GreenfootSound("hit.wav");
+    GreenfootSound psyco = new GreenfootSound("psyco.wav");
 
+    GreenfootSound psyco2 = new GreenfootSound("psyco2.wav");
+    GreenfootSound multihit = new GreenfootSound("multihit.wav");
+
+    protected final boolean equipo1;
     //atributos de la criatura
     protected int vida;
     protected int ataque;
@@ -130,6 +135,9 @@ public abstract class Criatura extends Actor {
         double efectividad = otro.recibirDaño(this, this.ataque);
         actualizarMensajeAtaque(efectividad, 0);
         ((PantallaDuelo)getWorld()).turno();
+        this.hit=hit;
+        hit.play(); 
+
     }
 
     public void atacar2(Criatura otro) {

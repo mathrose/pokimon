@@ -12,6 +12,7 @@ public class PantallaSeleccion extends World {
     GreenfootSound finsound = new GreenfootSound("menufin.wav");
     GreenfootSound letsfightsound = new GreenfootSound("lets-fight.wav");
     GreenfootSound selected_sfx = new GreenfootSound("click-sfx_2.mp3");
+    
 
 
     public PantallaSeleccion() {
@@ -45,8 +46,8 @@ public class PantallaSeleccion extends World {
 
         //Marcos de equipo
 
-        addObject(new MarcoEquipo(new GreenfootImage("MarcoAzul.png"), true), 125, 140);
-        addObject(new MarcoEquipo(new GreenfootImage("MarcoRojo.png"), false), 674, 140);
+        addObject(new MarcoEquipo(new GreenfootImage("marcoAzul.png"), true), 125, 140);
+        addObject(new MarcoEquipo(new GreenfootImage("marcoRojo.png"), false), 674, 140);
 
         //Boton duelo
         GreenfootImage botonDuelo = new GreenfootImage("BotonLuchar.png");
@@ -157,7 +158,7 @@ public class PantallaSeleccion extends World {
             this.batallasound=batallasound;
             //Greenfoot.delay(200);
             batallasound.play(); 
-            batallasound.setVolume(70);
+            batallasound.setVolume(50);
             batallasound.playLoop();
 
         }

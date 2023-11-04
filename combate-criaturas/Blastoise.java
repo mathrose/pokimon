@@ -11,11 +11,7 @@ public class Blastoise extends Criatura {
         this(nombre, false);
     }
 
-    public void atacar1(Criatura otro) {
-        double efectividad = otro.recibirDaño(this, this.ataque);
-        actualizarMensajeAtaque(efectividad, 0);
-        ((PantallaDuelo)getWorld()).turno();
-    }
+   
 
     public void atacar2(Criatura otro) {
         double efectividad = otro.recibirDaño(this, this.ataque*4);
