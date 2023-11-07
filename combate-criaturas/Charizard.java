@@ -18,8 +18,9 @@ public class Charizard extends Criatura {
         actualizarMensajeAtaque(efectividad, 1);
         ((PantallaDuelo)getWorld()).turno();
       
-         rugido.play(); 
+        rugido.play(); 
         rugido.setVolume(50);
+        //System.out.print(otro.getAtaque());
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
@@ -46,7 +47,7 @@ public class Charizard extends Criatura {
 
     public void atacar4(Criatura otro) {
         llamarada2.play(); 
-        llamarada.setVolume(50);
+        llamarada.setVolume(35);
         if (vida<otro.vida){
 
             double efectividad = otro.recibirDaño(this, this.ataque*3);

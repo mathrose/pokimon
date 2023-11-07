@@ -345,10 +345,17 @@ public abstract class Criatura extends Actor {
 
     public int perderPuntosDeAtaque(int lossAtac){
         this.ataque-=lossAtac;
-        return this.ataque;}
+        return this.ataque;
+    }
 
     public int perderPuntosDeDefensa(int lossDef){
         this.ataque-=lossDef;
-        return this.ataque;}
+        return this.defensa;
+    }
+    
+    public int perderPuntosVida(int lossLife){
+        this.vida-=lossLife;
+        return this.vida;
+    }
 
 }
