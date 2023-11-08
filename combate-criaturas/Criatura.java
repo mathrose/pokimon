@@ -316,8 +316,8 @@ public abstract class Criatura extends Actor {
         ((PantallaDuelo)getWorld()).uiAtaques.cambiarDescripcion(texto);
     }
 
-    protected void stunearCriatura(int n) {
-        this.stun = n;
+    protected void stunearCriatura(int turnosEstuneado) {
+        this.stun = turnosEstuneado;
     }
 
     protected void pasarTurnoStun() {

@@ -11,7 +11,7 @@ public class Espeon extends Criatura {
     }
     
     public void atacar2(Criatura otro) {
-        atacar1(otro);
+        
     }
     
     public boolean puedeRealizarAtaque2En(Criatura otro) {
@@ -19,18 +19,27 @@ public class Espeon extends Criatura {
     }
 
     public void atacar3(Criatura otro) {
-        atacar1(otro);
+        otro.stunearCriatura(3);
+        actualizarMensajeAtaque(1, 1);
+        ((PantallaDuelo)getWorld()).turno();
+        int ataqueConMinimo = this.ataque+=20;
+        double efectividad = otro.recibirDaño(this, ataqueConMinimo);
+        actualizarMensajeAtaque(efectividad, 2);
+        ((PantallaDuelo)getWorld()).turno();
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
-        return false;
+        return true;
     }
 
     public void atacar4(Criatura otro) {
-        atacar1(otro);
+        int porcentajeDeAtaque = otro.ataque*25/100;
+        double efectividad = otro.perderPuntosDeAtaque(porcentajeDeAtaque);
+        actualizarMensajeAtaque(efectividad, 3);
+        ((PantallaDuelo)getWorld()).turno();
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {
-        return false;
+        return true;
     }
 }
