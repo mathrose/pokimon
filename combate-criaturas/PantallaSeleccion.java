@@ -167,6 +167,7 @@ public class PantallaSeleccion extends World {
     public void empezarDuelo() {
         //Cambia el mundo
         if (contadorSeleccion > 3){
+            //Cambia a Pantalla Duelo con las criaturas seleccionadas
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
             //pausa el sonido seleccion.wav
             sound.pause();

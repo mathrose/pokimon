@@ -2,6 +2,7 @@
 comment0.target=Boton
 comment1.params=texto\ onClick\ size\ color\ width\ height
 comment1.target=Boton(java.lang.String,\ BotonReactor,\ int,\ greenfoot.Color,\ int,\ int)
+comment1.text=\r\n\ Se\ toman\ como\ parametros\ las\ variables\:\ texto,\ onClick,\ size,\ color,\ width\ (ancho)\ y\ height\ (largo)\r\n
 comment2.params=texto\ onClick
 comment2.target=Boton(java.lang.String,\ BotonReactor)
 comment3.params=

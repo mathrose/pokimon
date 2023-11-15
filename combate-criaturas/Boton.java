@@ -13,7 +13,9 @@ public class Boton extends Actor {
 
     private int forceWidth;
     private int forceHeight;
-
+    /**
+     * Se toman como parametros las variables: texto, onClick, size, color, width (ancho) y height (largo)
+     */
     public Boton(String texto, BotonReactor onClick, int size, Color color, int width, int height) {
         this.texto = texto;
 
@@ -85,7 +87,6 @@ public class Boton extends Actor {
             (width - txtImg.getWidth()) / 2,
             (height - txtImg.getHeight()) / 2
         );
-
 
         /*
         if(drawOutline) {

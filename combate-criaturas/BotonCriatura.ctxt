@@ -2,8 +2,10 @@
 comment0.target=BotonCriatura
 comment1.params=nombre\ image
 comment1.target=BotonCriatura(java.lang.String,\ greenfoot.GreenfootImage)
+comment1.text=\r\n\ Toma\ como\ parametros\ el\ nombre\ y\ la\ imagen\ del\ boton\ criatura\r\n
 comment2.params=nombre\ image\ esEquipoAzul
 comment2.target=BotonCriatura(java.lang.String,\ greenfoot.GreenfootImage,\ boolean)
+comment2.text=\r\n\ Toma\ como\ parametros\ el\ nombre,\ la\ imagen\ del\ boton\ criatura\ y\ el\ booleano\ de\ Equipo\ Azul\r\n
 comment3.params=nombre\ image\ esEquipoAzul\ esClickeable
 comment3.target=BotonCriatura(java.lang.String,\ greenfoot.GreenfootImage,\ boolean,\ boolean)
 comment4.params=

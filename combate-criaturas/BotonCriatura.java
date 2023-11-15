@@ -27,7 +27,9 @@ public class BotonCriatura extends Actor {
     private boolean esEquipoRojo = false;
     private boolean esEquipoAzul = false;
     GreenfootSound clicksound = new GreenfootSound("click-sound.mp3");
-
+    /**
+     * Toma como parametros el nombre y la imagen del boton criatura
+     */
     public BotonCriatura(String nombre, GreenfootImage image) {
         this.nombre = nombre;
         this.size = size;
@@ -37,6 +39,9 @@ public class BotonCriatura extends Actor {
         render();
     }
 
+    /**
+     * Toma como parametros el nombre, la imagen del boton criatura y el booleano de Equipo Azul
+     */
     public BotonCriatura(String nombre, GreenfootImage image, boolean esEquipoAzul) {
         this.nombre = nombre;
         this.size = size;
@@ -45,6 +50,7 @@ public class BotonCriatura extends Actor {
         this.imagenOriginal = image;
         this.esClickeable = true;
         this.poseeEquipo = true;
+        //Si es verdad que es del Equipo Azul es del Equipo Azul, sino es del Rojo
         if (esEquipoAzul == true) {
             this.esEquipoAzul = true;
             this.esEquipoRojo = false;
@@ -55,6 +61,7 @@ public class BotonCriatura extends Actor {
         render();
     }
 
+    
     public BotonCriatura(String nombre, GreenfootImage image, boolean esEquipoAzul, boolean esClickeable) {
         this.nombre = nombre;
         this.size = size;
@@ -79,17 +86,21 @@ public class BotonCriatura extends Actor {
                 public void configurar() {
                     if(esClickeable){
                         if (visualHover) {
+                            //Suena el clicksound al pasar el mouse por encima del objeto
                             clicksound.play();
+                            //Se agranda la imagen al pasar el mouse por encima del objeto
                             scaleToRatio(1.15);
                             if ((esEquipoRojo == false) && (esEquipoAzul == false)) {
+                                //Agrega un borde CYAN al pasar el mouse por encima del objeto
                                 highlight(Color.CYAN);
                             }
                         }
                     }
+
                     if (visualSeleccionado) {
                         highlight();
                     }
-
+                    
                     if (esEquipoAzul == true) {
                         flipHorizontally();
                         highlight(Color.BLUE);
@@ -122,18 +133,18 @@ public class BotonCriatura extends Actor {
 
         if (Greenfoot.mouseClicked(this)) {
             if(this.esClickeable){
-            System.out.print(this.nombre);
-            ((PantallaSeleccion)getWorld()).ubicarEnLista(this);
-        }
+                System.out.print(this.nombre);
+                //Coloca a las criaturas en el equipo correspondiente
+                ((PantallaSeleccion)getWorld()).ubicarEnLista(this);
+            }
         }
 
         if (_visualHover != visualHover || _visualSeleccionado != visualSeleccionado) {
             render();
         }
     }
-
+    //Retorna el nombre de la criatura para despues agregarla en la Pantalla Duelo
     public String getNombre(){
-
         return this.nombre;
     }
 

@@ -120,8 +120,9 @@ public class BotonPlay extends Actor {
 
         if (Greenfoot.mouseClicked(this)) {
             if(this.esClickeable){
-
+                //Pausa la música
                 ((Menu)getWorld()).pausarMusica();
+                //El Boton Play te lleva a la PantallaSeleccion al hacer click
                 Greenfoot.setWorld(new PantallaSeleccion());
             }
         }
