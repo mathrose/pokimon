@@ -19,7 +19,7 @@ public class Transition extends Actor
     public int alpha = 0;
     public int counter = 0;
     public int waitDuration = 0;
-    
+
     public Transition(boolean fadeOut, World world, int speed) {
         this.fadeSpeed = speed;
         this.world = world;
@@ -27,7 +27,7 @@ public class Transition extends Actor
         // Establece la transparencia inicial de la imagen del actor en 0.
         getImage().setTransparency(0);
     }
-    
+
     public Transition(boolean fadeOut, World world, int speed, int waitDuration) {
         //Incluye una duración de espera adicional
         this.fadeSpeed = speed;
@@ -37,6 +37,7 @@ public class Transition extends Actor
         // Establece la transparencia inicial de la imagen del actor en 0.
         getImage().setTransparency(0);
     }
+
     public Transition(boolean fadeOut, World world, String image, int speed) {
         this.fadeSpeed = speed;
         // Establece la imagen del actor con la imagen proporcionada.
@@ -45,6 +46,7 @@ public class Transition extends Actor
         this.fadeOut = fadeOut;
         getImage().setTransparency(0);
     }
+
     public void act()
     {
         // Incrementa el valor de 'alpha' según la velocidad de desvanecimiento.
@@ -53,30 +55,34 @@ public class Transition extends Actor
             //Si la condicion es verdadera, establece la transparencia
             //de la imagen en el valor actual de alpha
             getImage().setTransparency(alpha);
-            
+
         } else {
+            // Si alpha es mayor que 255, establece la transparencia en 255
             getImage().setTransparency(255);
+            //Incrementa el contador de espera
             counter++;
+            // Verifica si el contador de espera supera 
+            //la duración de espera especificada
             if (counter > waitDuration) {
+                //Si no es un desvanecimiento, llama a changeWorld() y devuelve
                 if (!fadeOut) {
                     changeWorld();
                     return;
                 } else {
+                    // Si es un desvanecimiento, agrega un nuevo 
+                    //objeto EndTransition al mundo y llama a changeWorld()
                     world.addObject(new EndTransition(), 316, 215);
                     changeWorld();
                     return;
                 }
             }
         }
-        
-        // Add your action code here.
     }
+    // Método que cambia el mundo actual al mundo almacenado en 
+    //world y elimina el objeto Transition
     public void changeWorld() { 
 
         getWorld().removeObject(this);
         Greenfoot.setWorld(world);
-    }
-    public void addedToWorld(World Menu) {
-        
     }
 }
