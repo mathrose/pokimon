@@ -4,6 +4,8 @@ public class PantallaDuelo extends World {
     private Texto turnoTexto;
     protected UIAtaques uiAtaques;
     private Criatura[] criaturas = new Criatura[4];
+    GreenfootSound batallasound = new GreenfootSound("batalla.wav");
+    GreenfootSound finale = new GreenfootSound("final.wav");
 
     private int ronda = 0;
     private int turno = 0;
@@ -29,6 +31,10 @@ public class PantallaDuelo extends World {
     }
 
     private void agregarCriaturas() {
+         batallasound.play(); 
+            batallasound.setVolume(50);
+            batallasound.playLoop();
+
         addObject(criaturas[0], 100, 150);
         addObject(criaturas[1], 300, 150);
         addObject(criaturas[2], 500, 150);
@@ -82,9 +88,13 @@ public class PantallaDuelo extends World {
         //verifica si todos los pokemons son del mismo equipo y da fin a la pelea.
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == true)) {
             uiAtaques.cambiarDescripcion("Gana el equipo rojo!");
+             batallasound.pause();
+             finale.play();
         }
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == false)) {
             uiAtaques.cambiarDescripcion("Gana el equipo azul!");
+             batallasound.pause();
+             finale.play();
         }
     }
 
@@ -113,6 +123,7 @@ public class PantallaDuelo extends World {
             uiAtaques.asignarCriaturaActual(criaturas[turno]);
         }else{
             turno();
+             batallasound.pause();
         }
 
         /**
@@ -129,9 +140,12 @@ public class PantallaDuelo extends World {
         //verifica si todos los pokemons son del mismo equipo y da fin a la pelea.
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == true)) {
             uiAtaques.cambiarDescripcion("Gana el equipo rojo!");
+           
         }
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == false)) {
             uiAtaques.cambiarDescripcion("Gana el equipo azul!");
+           
+            
         }
 
     }

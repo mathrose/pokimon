@@ -153,13 +153,13 @@ public class PantallaSeleccion extends World {
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
             sound.pause();
             letsfightsound.play();
-            this.finsound=finsound;
-            //finsound.play(); 
-            this.batallasound=batallasound;
-            //Greenfoot.delay(200);
-            batallasound.play(); 
-            batallasound.setVolume(50);
-            batallasound.playLoop();
+            // this.finsound=finsound;
+            // //finsound.play(); 
+            // this.batallasound=batallasound;
+            // //Greenfoot.delay(200);
+            // batallasound.play(); 
+            // batallasound.setVolume(50);
+            // batallasound.playLoop();
 
         }
     }
