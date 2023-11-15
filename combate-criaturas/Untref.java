@@ -17,22 +17,24 @@ public class Untref extends World
     public GreenfootSound menutheme = new GreenfootSound("PlayStation.wav");
     public Untref()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Crea un nuevo mundo 800x500
         super(800, 500, 1, false); 
         setPaintOrder(EndTransition.class, Transition.class);
-        
+
     }
     // Duracion y final de la pantalla
     public void act() {
+        //Reproduccion de la musica
         if (!menutheme.isPlaying()) {
             menutheme.setVolume(80);
-          
+
             menutheme.playLoop();
-             
+
         }
         counter++;
+        //Si el contador es mayor a 130 se pausa la musica y agrega la pantalla Menu
         if (counter > 130) {
-             menutheme.pause();
+            menutheme.pause();
             Greenfoot.setWorld(new Menu());
         }
     }
