@@ -68,8 +68,9 @@ public class PantallaDuelo extends World {
         else{
             uiAtaques.cambiarColorDescripcion(Color.BLACK);
         }
-
-        if (getObjects(criaturas[turno].getClass()).size() != 0){
+        
+        boolean equipoCriatura = criaturas[turno].esEquipo1();
+        if (getObjects(criaturas[turno].getClass()).size() != 0 && (getObjects(criaturas[turno].getClass()).stream().anyMatch(val -> val.esEquipo1() == equipoCriatura)) ){
             turnoTextoNumero++;
             for (int i = 0; i < criaturas.length; i++) {
                 if (getObjects(criaturas[i].getClass()).size() != 0){
@@ -111,8 +112,10 @@ public class PantallaDuelo extends World {
         }else{
             uiAtaques.cambiarColorDescripcion(Color.BLACK);
         }
-
-        if (getObjects(criaturas[turno].getClass()).size() != 0){
+        
+        boolean equipoCriatura = criaturas[turno].esEquipo1();
+        if (getObjects(criaturas[turno].getClass()).size() != 0 && (getObjects(criaturas[turno].getClass()).stream().anyMatch(val -> val.esEquipo1() == equipoCriatura) )){
+            
             for (int i = 0; i < criaturas.length; i++) {
                 if (getObjects(criaturas[i].getClass()).size() != 0){
                     criaturas[i].setVisualSeleccionado(false);
@@ -140,7 +143,6 @@ public class PantallaDuelo extends World {
         //verifica si todos los pokemons son del mismo equipo y da fin a la pelea.
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == true)) {
             uiAtaques.cambiarDescripcion("Gana el equipo rojo!");
-           
         }
         if(getObjects(Criatura.class).stream().allMatch(val -> val.esEquipo1() == false)) {
             uiAtaques.cambiarDescripcion("Gana el equipo azul!");
