@@ -1,6 +1,6 @@
 import greenfoot.*;
 import java.util.Random;
-
+//wefwsdfffsdff
 public class Blastoise extends Criatura {
     public Blastoise(String nombre, boolean imagenEspejada) {
         //vida, ataque, defensa, velocidad

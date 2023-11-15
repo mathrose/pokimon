@@ -12,15 +12,18 @@ public class PantallaSeleccion extends World {
     GreenfootSound finsound = new GreenfootSound("menufin.wav");
     GreenfootSound letsfightsound = new GreenfootSound("lets-fight.wav");
     GreenfootSound selected_sfx = new GreenfootSound("click-sfx_2.mp3");
+
     
-
-
     public PantallaSeleccion() {
+        //Dimensión en pixeles de la imagen de la pantalla
         super(800, 500, 1);
+        //Agrega la imagen select.png
         MyGreenfootImage fondoSeleccion = new MyGreenfootImage(new GreenfootImage("select.png"));
+        //Dimension en pixeles de la imagen de la pantalla
         fondoSeleccion.scale(800,500);
         getBackground().drawImage(fondoSeleccion, 0, 0);
         agregarImagenesSeleccion();
+        //Agrega el sonido de fondo seleccion.wav
         this.sound=sound;
         sound.play(); 
         sound.setVolume(40);
@@ -28,6 +31,11 @@ public class PantallaSeleccion extends World {
 
     }
 
+    /**
+     * Agrega las imagenes de las criaturas para seleccionar y los marcos 
+     * que indican cada equipo y agrega el "Boton Duelo"
+     * 
+     */
     private void agregarImagenesSeleccion() {
 
         //Primera fila
@@ -56,6 +64,11 @@ public class PantallaSeleccion extends World {
 
     }
 
+    /**
+     * Tiene un contadorSeleccion que si es menor o igual a 3 se colocan en el equipo azul 
+     * y los que quedan en el equipo rojo
+     * 
+     */
     public void ubicarEnLista(BotonCriatura criaturaSeleccion) {
         if(contadorSeleccion <= 3){
             this.criaturasSeleccion[contadorSeleccion] = criaturaSeleccion;
@@ -147,11 +160,17 @@ public class PantallaSeleccion extends World {
         }
     }
 
+    /**
+     * Si contadorSeleccion es mayor a 3 se agrega la nueva clase mundo, PantallaDuelo
+     * empieza con las criaturas seleccionadas
+     */
     public void empezarDuelo() {
         //Cambia el mundo
         if (contadorSeleccion > 3){
             Greenfoot.setWorld(new PantallaDuelo(criaturas));
+            //pausa el sonido seleccion.wav
             sound.pause();
+            //reproduce el sonido lets-fight.wav
             letsfightsound.play();
             // this.finsound=finsound;
             // //finsound.play(); 
@@ -164,6 +183,10 @@ public class PantallaSeleccion extends World {
         }
     }
 
+    /**
+     * Retorna el valor de la variable contadorSeleccion 
+     * perteneciente al método ubicarEnLista
+     */
     public int getContadorSeleccion() {
 
         return this.contadorSeleccion;
