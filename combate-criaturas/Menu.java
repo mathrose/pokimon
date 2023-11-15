@@ -23,10 +23,16 @@ public class Menu extends World {
         agregarImagenesSeleccion();
         this.sound=sound;
         sound.play(); 
-        sound.setVolume(0);
+        sound.setVolume(70);
         sound.playLoop();
         counter++;
 
+    }
+    
+    public void pausarMusica() {
+    
+        this.sound.pause();
+    
     }
 
     private void agregarImagenesSeleccion() {

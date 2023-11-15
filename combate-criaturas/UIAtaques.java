@@ -2,6 +2,7 @@ import greenfoot.Actor;
 import greenfoot.Color;
 import greenfoot.GreenfootImage;
 import greenfoot.World;
+import greenfoot.*;
 
 public class UIAtaques extends Actor {
     Criatura criaturaActual;
@@ -57,6 +58,13 @@ public class UIAtaques extends Actor {
     }
 
     public void click(Criatura c) {
+
+        if (  ((PantallaDuelo)getWorld()).verificarFinDeJuego() == true) 
+        {
+            Greenfoot.setWorld(new Menu());
+            return;
+        }
+
         ataqueObjetivo = c;
         if (botonSeleccionado == null) {
             descripcion.setText(c.getStats());
@@ -64,17 +72,27 @@ public class UIAtaques extends Actor {
         if (ataque != null) {
             ataque.run();
         }
+
     }
-    
     public void cambiarDescripcion(String texto) {
         this.descripcion.setText(texto);
     }
-    
+
     public void cambiarColorDescripcion(Color color) {
         this.descripcion.setColor(color);
     }
 
     public void hover(Criatura c) {
+        
+        if (  ((PantallaDuelo)getWorld()).verificarFinDeJuego() == true) 
+        {
+            
+
+            Greenfoot.delay(200);
+            Greenfoot.setWorld(new Menu());
+            return;
+        }
+        
         if (hoverObjetivo == c) {
             return;
         }

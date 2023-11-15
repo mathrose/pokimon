@@ -12,10 +12,8 @@ public class BotonPlay extends Actor {
     private int size;
     private Color color;
     private Color bgColor;
-   
 
     private BotonReactor onClick;
-
     private int forceWidth;
     private int forceHeight;
 
@@ -122,20 +120,20 @@ public class BotonPlay extends Actor {
 
         if (Greenfoot.mouseClicked(this)) {
             if(this.esClickeable){
-                
-                
-                 Greenfoot.setWorld(new PantallaSeleccion());
+
+                ((Menu)getWorld()).pausarMusica();
+                Greenfoot.setWorld(new PantallaSeleccion());
+            }
+        }
+
+        if (_visualHover != visualHover || _visualSeleccionado != visualSeleccionado) {
+            render();
         }
     }
 
-    if (_visualHover != visualHover || _visualSeleccionado != visualSeleccionado) {
-        render();
+    public String getNombre(){
+
+        return this.nombre;
     }
-}
-
-public String getNombre(){
-
-return this.nombre;
-}
 
 }
