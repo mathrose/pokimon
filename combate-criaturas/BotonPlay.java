@@ -12,6 +12,7 @@ public class BotonPlay extends Actor {
     private int size;
     private Color color;
     private Color bgColor;
+   
 
     private BotonReactor onClick;
 
@@ -121,7 +122,8 @@ public class BotonPlay extends Actor {
 
         if (Greenfoot.mouseClicked(this)) {
             if(this.esClickeable){
-                System.out.print(this.nombre);
+                
+                
                  Greenfoot.setWorld(new PantallaSeleccion());
         }
     }

@@ -23,7 +23,7 @@ public class PantallaSeleccion extends World {
         agregarImagenesSeleccion();
         this.sound=sound;
         sound.play(); 
-        sound.setVolume(0);
+        sound.setVolume(40);
         sound.playLoop();
 
     }

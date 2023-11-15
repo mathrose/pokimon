@@ -7,12 +7,12 @@ public class Menu extends World {
     private BotonCriatura[] criaturasSeleccionMenu = new BotonCriatura[4];
     private Criatura[] criaturas = new Criatura[4];
     private int contadorSeleccion = 0;
-    GreenfootSound sound = new GreenfootSound("seleccion.wav");
+    GreenfootSound sound = new GreenfootSound("MusicaMenu.wav");
     GreenfootSound batallasound = new GreenfootSound("batalla.wav");
     GreenfootSound finsound = new GreenfootSound("menufin.wav");
     GreenfootSound letsfightsound = new GreenfootSound("lets-fight.wav");
     GreenfootSound selected_sfx = new GreenfootSound("click-sfx_2.mp3");
-    
+    public int counter = 0;
 
 
     public Menu() {
@@ -25,6 +25,7 @@ public class Menu extends World {
         sound.play(); 
         sound.setVolume(0);
         sound.playLoop();
+        counter++;
 
     }
 
@@ -38,6 +39,12 @@ public class Menu extends World {
         addObject(new BotonPlay("BotonDuelo", botonPlay),139,93);
 
     }
+    // public void finMenu() {
+         // if (counter > 1) {
+             // sound.pause();
+        
+    // }
 
   
+// }
 }
