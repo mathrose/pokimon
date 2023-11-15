@@ -210,7 +210,7 @@ public abstract class Criatura extends Actor {
     private double[] calcularAtaque(Criatura atacante, int ataque) {
         Random random = new Random();
         double ataqueContraDefensa = ataque/this.defensa;
-        double randomNumber = random.nextInt(4) + 1;
+        double randomNumber = random.nextDouble()*(1.25-0.5) + 0.5;
         double efectividad = calcularEfectividad(atacante);
         double daño = 2*(1+ataqueContraDefensa)*randomNumber*efectividad;
         return (new double[] {daño, efectividad});

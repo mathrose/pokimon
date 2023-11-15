@@ -2,7 +2,7 @@ import greenfoot.GreenfootImage;
 
 public class Espeon extends Criatura {
     public Espeon(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,40,30,30, "Psiquico", new String[] { "Placaje", "Psicoforme", "Rayo Psiquico", "Brillo Milagroso" }, imagenEspejada,
+        super(nombre, 21,90,30,30, "Psiquico", new String[] { "Placaje", "Psicoforme", "Rayo Psiquico", "Brillo Milagroso" }, imagenEspejada,
             new String[] { "Causa un daño moderado a un enemigo", "Evita los efectos de ataque, solo recibe el daño verdadero durante 1 turno", "Realiza un ataque de minimo 20 puntos y paraliza a la criatura rival durante 1 turno", "Baja el ataque de todas las criaturas" });
     }
 
