@@ -14,13 +14,11 @@ public abstract class Criatura extends Actor {
 
     GreenfootSound psyco2 = new GreenfootSound("psyco2.wav");
     GreenfootSound multihit = new GreenfootSound("multihit.wav");
-    
+
     GreenfootSound rugido = new GreenfootSound("rugido.wav");
     GreenfootSound llamarada = new GreenfootSound("llamarada.wav");
     GreenfootSound llamarada2 = new GreenfootSound("llamarada2.wav");
     GreenfootSound llamarada3 = new GreenfootSound("llamarada3.wav");
-    
-    
 
     protected final boolean equipo1;
     //atributos de la criatura
@@ -343,16 +341,19 @@ public abstract class Criatura extends Actor {
         return stun+1;
     }
 
-    public int perderPuntosDeAtaque(int lossAtac){
-        this.ataque-=lossAtac;
-        return this.ataque;
+    public void perderPuntosDeAtaque(int ataquePerdido){
+        if ((this.ataque - ataquePerdido <= 0)) {
+            this.ataque = 0;
+
+        } else {this.ataque-=ataquePerdido;}
+
     }
 
     public int perderPuntosDeDefensa(int lossDef){
         this.ataque-=lossDef;
         return this.defensa;
     }
-    
+
     public int perderPuntosVida(int lossLife){
         this.vida-=lossLife;
         return this.vida;

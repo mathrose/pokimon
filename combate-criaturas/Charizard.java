@@ -12,12 +12,11 @@ public class Charizard extends Criatura {
     }
 
     public void atacar2(Criatura otro) {
-         ;
-        
-        double efectividad = otro.perderPuntosDeAtaque(6);
-        actualizarMensajeAtaque(efectividad, 1);
+
+        otro.perderPuntosDeAtaque(6);
+        actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
-      
+
         rugido.play(); 
         rugido.setVolume(50);
         //System.out.print(otro.getAtaque());
@@ -58,6 +57,6 @@ public class Charizard extends Criatura {
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 }

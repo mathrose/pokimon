@@ -12,7 +12,7 @@ public class Delphox extends Criatura {
     }
 
     public void atacar2(Criatura otro) {
-        double efectividad = otro.perderPuntosDeAtaque(2);
+        otro.perderPuntosDeAtaque(2);
         otro.stunearCriatura(1);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();

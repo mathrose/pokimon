@@ -22,7 +22,7 @@ public class Blastoise extends Criatura {
 
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 
     public void atacar3(Criatura otro) {
