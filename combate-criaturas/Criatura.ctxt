@@ -66,6 +66,7 @@ comment38.params=
 comment38.target=boolean\ getStun()
 comment39.params=
 comment39.target=int\ getTurnosStun()
+comment39.text=\r\n\ Devuelve\ el\ n\u00FAmero\ de\ turnos\ restantes\ de\ aturdimiento\ m\u00E1s\ 1\r\n
 comment4.params=
 comment4.target=void\ render()
 comment40.params=ataquePerdido

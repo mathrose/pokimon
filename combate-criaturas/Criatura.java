@@ -42,41 +42,49 @@ public abstract class Criatura extends Actor {
     private MyGreenfootImage imagenStun;
 
     public Criatura(String nombre, int vida, int ataque,int defensa, int velocidad , String elemento, String[] nombresAtaque, boolean equipo1, String[] detallesAtaque) {
+        //Asigna el nombre proporcionado a la criatura
         this.nombre = nombre;
-
+        //Establece la vida máxima de la criatura
         this.vidaMaxima = vida;
-
+        //Asigna los nombres y detalles de los ataques a la criatura
         this.nombresAtaque = nombresAtaque;
         this.detallesAtaque = detallesAtaque;
-
+        // Inicializa los atributos de la criatura
+        // con los valores proporcionados
         this.vida = vida;
         this.ataque = ataque;
         this.defensa = defensa;
         this.defensaBase = defensa;
         this.velocidad = velocidad;
         this.elemento = elemento;
-
+        // Asigna el equipo al que pertenece la criatura
         this.equipo1 = equipo1;
-
+        // Crea una imagen original de la criatura
+        // y la escala a un tamaño específico
         this.imagenOriginal = new MyGreenfootImage(getImage());
         this.imagenOriginal.scale(170, 170);
-
+        // Se crea una imagen de aturdimiento usando 
+        // el nombre de la criatura con "Stun.png".
+        // Si no puede encontrar la imagen, utiliza la imagen original.
         try {
             this.imagenStun = new MyGreenfootImage(new GreenfootImage(this.nombre + "Stun.png"));
         } catch(java.lang.IllegalArgumentException err) {
             this.imagenStun = imagenOriginal;
         }
-
+        // Escala la imagen de aturdimiento al mismo tamaño que la imagen original
         this.imagenStun.scale(170, 170);
-
+        // Crea una interfaz de usuario para mostrar información de la criatura
         this.uiInfoCriatura = new UIInfoCriatura(this);
+        // Inicializa el contador de turnos de aturdimiento en 0.
         this.stun = 0;
     }
 
     @Override
     protected void addedToWorld(World world) {
+        // Llama al método render() para actualizar como se ve la criatura
         render();
-
+        // Añade la interfaz de usuario (uiInfoCriatura) al mundo,
+        // en la posición de la criatura
         getWorld().addObject(uiInfoCriatura, getX(), getY());
         // Una vez en el mundo, actualizo segun su tamaño
         uiInfoCriatura.setLocation(getX(), getY() + getImage().getHeight() / 2 - /*Sombra*/ 10 + uiInfoCriatura.getImage().getHeight() / 2);
@@ -283,7 +291,9 @@ public abstract class Criatura extends Actor {
     }
 
     public String getStats() {
+        // Se obtiene el nombre de la criatura con el nombre de su clase
         return nombre + " (" + this.getClass().getSimpleName() + ")\n" +
+        //Es información detallada sobre las estadísticas de la criatura
         " - Ataque: "+ this.ataque + "\n" +
         " - Defensa: " + this.defensa + "\n" +
         " - Velocidad: "+ this.velocidad + "\n" +
@@ -319,43 +329,65 @@ public abstract class Criatura extends Actor {
     }
 
     protected void pasarTurnoStun() {
+        // Verifica si la criatura está aturdida
         if (this.stun > 0) {
+            // Si la criatura está aturdida, 
+            // disminuye el contador de turnos de aturdimiento en 1
             this.stun -= 1;
 
         }else{
+            // Si el contador de turnos de aturdimiento es 0 o negativo, 
+            //se asegura de que se establezca a 0
             this.stun = 0;
         }
 
     }
 
     public boolean getStun() {
+        // Verifica si el contador de turnos de aturdimiento (stun) no es igual a 0
         if (stun != 0 ){
+            // Si stun no es igual a 0, la criatura está aturdida
             return true;
         }
         else{
+            // Si stun es igual a 0, la criatura no está aturdida
             return false;
         }
     }
 
+    /**
+     * Devuelve el número de turnos restantes de aturdimiento más 1
+     */
     public int getTurnosStun() {
         return stun+1;
     }
 
     public void perderPuntosDeAtaque(int ataquePerdido){
+         // Si la resta de puntos de ataque resulta en un valor no positivo
         if ((this.ataque - ataquePerdido <= 0)) {
+            // Si la reducción llevaría a un valor no positivo, 
+            // establece el ataque a 0
             this.ataque = 0;
 
-        } else {this.ataque-=ataquePerdido;}
+        } else {
+            // Si la reducción no lleva a un valor no positivo, 
+            // disminuye el ataque en la cantidad especificada
+            this.ataque-=ataquePerdido;
+        }
 
     }
 
     public int perderPuntosDeDefensa(int lossDef){
+        // Reducción de puntos de ataque en la cantidad especificada
         this.ataque-=lossDef;
+        // Devuelve el valor actualizado de puntos de defensa
         return this.defensa;
     }
 
     public int perderPuntosVida(int lossLife){
+        // Reducción de puntos de vida en la cantidad especificada
         this.vida-=lossLife;
+        // Devuelve el valor actualizado de puntos de vida
         return this.vida;
     }
 
