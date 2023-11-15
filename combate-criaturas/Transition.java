@@ -24,18 +24,22 @@ public class Transition extends Actor
         this.fadeSpeed = speed;
         this.world = world;
         this.fadeOut = fadeOut;
-        
+        // Establece la transparencia inicial de la imagen del actor en 0.
         getImage().setTransparency(0);
     }
+    
     public Transition(boolean fadeOut, World world, int speed, int waitDuration) {
+        //Incluye una duración de espera adicional
         this.fadeSpeed = speed;
         this.world = world;
         this.fadeOut = fadeOut;
         this.waitDuration = waitDuration;
+        // Establece la transparencia inicial de la imagen del actor en 0.
         getImage().setTransparency(0);
     }
     public Transition(boolean fadeOut, World world, String image, int speed) {
         this.fadeSpeed = speed;
+        // Establece la imagen del actor con la imagen proporcionada.
         setImage(new GreenfootImage(image));
         this.world = world;
         this.fadeOut = fadeOut;
@@ -43,9 +47,11 @@ public class Transition extends Actor
     }
     public void act()
     {
+        // Incrementa el valor de 'alpha' según la velocidad de desvanecimiento.
         alpha+=fadeSpeed;
         if (alpha <= 255) {
-            
+            //Si la condicion es verdadera, establece la transparencia
+            //de la imagen en el valor actual de alpha
             getImage().setTransparency(alpha);
             
         } else {
