@@ -43,7 +43,9 @@ public class Blastoise extends Criatura {
     //Autodestruccion
     public void atacar4(Criatura otro) {
         ((PantallaDuelo)getWorld()).getObjects(Criatura.class).forEach(criatura -> {
+                if (criatura != this){
                 criatura.recibirDaño(this, this.ataque*2);
+            }
         });
         actualizarMensajeAtaque(1.0, 3);
         ((PantallaDuelo)getWorld()).turno();
