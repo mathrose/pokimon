@@ -32,9 +32,6 @@ public abstract class Criatura extends Actor {
     protected String nombreAtaqueActual = "";
 
     protected int stun = 0;
-    protected boolean criaturaStuneada = false;
-    protected boolean ultimoTurnoStuneado = false;
-
     protected UIInfoCriatura uiInfoCriatura;
 
     private boolean visualHover;
@@ -161,10 +158,6 @@ public abstract class Criatura extends Actor {
             ((PantallaDuelo)getWorld()).turno();
         }
 
-    }
-
-    public void setStun(boolean stun) {
-        this.criaturaStuneada = stun;
     }
 
     public abstract void atacar3(Criatura otro);
@@ -376,14 +369,10 @@ public abstract class Criatura extends Actor {
             // Si la criatura está aturdida, 
             // disminuye el contador de turnos de aturdimiento en 1
             this.stun -= 1;
-            criaturaStuneada = true;
-
         }else{
             // Si el contador de turnos de aturdimiento es 0 o negativo, 
             //se asegura de que se establezca a 0
             this.stun = 0;
-            criaturaStuneada = false;
-
         }
 
     }
@@ -391,19 +380,6 @@ public abstract class Criatura extends Actor {
     public boolean getStun() {
         // Verifica si el contador de turnos de aturdimiento (stun) no es igual a 0
         if (stun != 0 ){
-            // Si stun no es igual a 0, la criatura está aturdida
-            return true;
-        }
-        else{
-            // Si stun es igual a 0, la criatura no está aturdida
-            criaturaStuneada = false;
-            return false;
-        }
-    }
-
-    public boolean getStunImage() {
-        // Verifica si el contador de turnos de aturdimiento (stun) no es igual a 0
-        if (stun != -1 ){
             // Si stun no es igual a 0, la criatura está aturdida
             return true;
         }

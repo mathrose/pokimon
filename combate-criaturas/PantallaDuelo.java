@@ -45,7 +45,7 @@ public class PantallaDuelo extends World {
     private void ronda() {
         ronda++;
         turno(true);
-        
+
     }
 
     public boolean verificarFinDeJuego() {
@@ -81,12 +81,8 @@ public class PantallaDuelo extends World {
         if (criaturas[turno].getStun() == true) {
             criaturas[turno].pasarTurnoStun();
             criaturas[turno].setMensajeStun();
-            uiAtaques.cambiarColorDescripcion(Color.YELLOW);
             turno();
             return;
-        }
-        else{
-            uiAtaques.cambiarColorDescripcion(Color.BLACK);
         }
 
         boolean equipoCriatura = criaturas[turno].esEquipo1();
@@ -119,12 +115,8 @@ public class PantallaDuelo extends World {
         if (criaturas[turno].getStun() == true) {
             criaturas[turno].pasarTurnoStun();
             criaturas[turno].setMensajeStun();
-            uiAtaques.cambiarColorDescripcion(Color.YELLOW);
             turno();
             return;
-        }else{
-            criaturas[turno].setStun(false);
-            uiAtaques.cambiarColorDescripcion(Color.BLACK);
         }
 
         boolean equipoCriatura = criaturas[turno].esEquipo1();
