@@ -133,7 +133,6 @@ public class BotonCriatura extends Actor {
 
         if (Greenfoot.mouseClicked(this)) {
             if(this.esClickeable){
-                System.out.print(this.nombre);
                 //Coloca a las criaturas en el equipo correspondiente
                 ((PantallaSeleccion)getWorld()).ubicarEnLista(this);
             }

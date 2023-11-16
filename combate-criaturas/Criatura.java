@@ -210,7 +210,9 @@ public abstract class Criatura extends Actor {
         // START Remueve el objeto del pokemon si se queda sin vida
         if (this.vida<=0){
             this.vida = 0;
+
             uiInfoCriatura.actualizar();
+            this.mensajeAtaque = "";
             getWorld().removeObject(this.uiInfoCriatura);
             getWorld().removeObject(this);
         }
@@ -226,6 +228,7 @@ public abstract class Criatura extends Actor {
         if (this.vida<=0){
             this.vida = 0;
             uiInfoCriatura.actualizar();
+            this.mensajeAtaque = "";
             getWorld().removeObject(this.uiInfoCriatura);
             getWorld().removeObject(this);
         }
@@ -338,7 +341,6 @@ public abstract class Criatura extends Actor {
             mensajeAtaque = mensajeAtaque + nombresAtaque[numeroAtaque] + " no ha sido efectivo.";
 
         this.mensajeAtaque = mensajeAtaque;
-        //System.out.print(this.mensajeAtaque);
     }
 
     public void setMensajeStun() {

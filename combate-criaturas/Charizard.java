@@ -19,8 +19,7 @@ public class Charizard extends Criatura {
         ((PantallaDuelo)getWorld()).turno();
 
         rugido.play(); 
-        rugido.setVolume(50);
-        //System.out.print(otro.getAtaque());
+        rugido.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
@@ -30,7 +29,7 @@ public class Charizard extends Criatura {
     public void atacar3(Criatura otro) {
         this.llamarada=llamarada;
         llamarada.play(); 
-        llamarada.setVolume(50);
+        llamarada.setVolume(90);
 
         this.stunearCriatura(2);
         double efectividad = otro.recibirDaño(this, this.ataque*3, true);
@@ -45,7 +44,7 @@ public class Charizard extends Criatura {
 
     public void atacar4(Criatura otro) {
         llamarada2.play(); 
-        llamarada.setVolume(35);
+        llamarada.setVolume(90);
         if (this.vida>otro.vida){
 
             double efectividad = otro.recibirDaño(this, this.ataque*3, true);
@@ -56,6 +55,7 @@ public class Charizard extends Criatura {
             double efectividad = otro.recibirDaño(this, this.ataque, true);
             actualizarMensajeAtaque(efectividad, 3);
             ((PantallaDuelo)getWorld()).turno();}
+
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {

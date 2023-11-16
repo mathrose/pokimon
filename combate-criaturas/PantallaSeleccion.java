@@ -73,7 +73,6 @@ public class PantallaSeleccion extends World {
         if(contadorSeleccion <= 3){
             this.criaturasSeleccion[contadorSeleccion] = criaturaSeleccion;
             String nombreCriatura = criaturaSeleccion.getNombre();
-            System.out.print(nombreCriatura);
             int pos_x;
             int pos_y;
             boolean equipoAzul;
@@ -105,7 +104,6 @@ public class PantallaSeleccion extends World {
                     equipoAzul = false;
                     break;
             }
-            System.out.print(pos_x);
 
             switch (nombreCriatura) { 
                 case "Sylveon":

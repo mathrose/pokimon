@@ -41,11 +41,11 @@ public class Sylveon extends Criatura {
     public void atacar3(Criatura otro) {
 
         otro.stunearCriatura(1);
-        actualizarMensajeAtaque(1, 1);
+        actualizarMensajeAtaque(1, 2);
         ((PantallaDuelo)getWorld()).turno();
         
         psyco2.play(); 
-        psyco.setVolume(50);
+        psyco2.setVolume(90);
 
     }
 

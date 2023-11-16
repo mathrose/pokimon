@@ -16,7 +16,8 @@ public class Delphox extends Criatura {
         otro.stunearCriatura(1);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
-        //System.out.print(otro.getAtaque());
+        llamarada.play(); 
+        llamarada.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
@@ -26,9 +27,11 @@ public class Delphox extends Criatura {
     public void atacar3(Criatura otro) {
         int cantidadDeCriaturasMuertas = 6 - ((PantallaDuelo)getWorld()).getObjects(Criatura.class).size();
         System.out.print(cantidadDeCriaturasMuertas);
-        double efectividad = otro.recibirDaño(this, this.ataque*cantidadDeCriaturasMuertas);
+        double efectividad = otro.recibirDaño(this, this.ataque*cantidadDeCriaturasMuertas, true);
         actualizarMensajeAtaque(efectividad, 2);
         ((PantallaDuelo)getWorld()).turno();
+        llamarada.play(); 
+        llamarada.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
@@ -37,7 +40,7 @@ public class Delphox extends Criatura {
 
     public void atacar4(Criatura otro) {
 
-        double[] calculoAtaque = calcularAtaque(this, ataque*2);
+        double[] calculoAtaque = calcularAtaque(otro, ataque*2);
         int daño = (int)calculoAtaque[0];
         double efectividad = calculoAtaque[1];
 
@@ -45,8 +48,11 @@ public class Delphox extends Criatura {
         this.recibirVida(this, daño);
         actualizarMensajeAtaque(efectividad, 3);
         ((PantallaDuelo)getWorld()).turno();
+        llamarada.play(); 
+        llamarada.setVolume(90);
 
     }
+
     public boolean puedeRealizarAtaque4En(Criatura otro) {
         return !esDelMismoEquipoQue(otro);
     }

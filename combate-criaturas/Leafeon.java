@@ -2,47 +2,69 @@ import greenfoot.GreenfootImage;
 
 public class Leafeon extends Criatura {
     public Leafeon(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,102,50,50, "Planta", new String[] { "Placaje", "Guardian de la Hoja", "Energia del ardin", "Sacrificio al Señor Oscuro" }, imagenEspejada,
-                new String[] { "Causa un daño moderado a un enemigo", "Durante 1 turno recibe solo la mitad de daño", "Regenera 35% de su vida actual o a su compañero de equipo", "Causa gran daño a ambos enemigos gastando 20% de su vida(creo)" });
-                
+        super(nombre, 90,102,9,50, "Planta", new String[] { "Placaje", "Guardian de la Hoja", "Energia del jardín", "Corte de Hoja" }, imagenEspejada,
+            new String[] { "Causa un daño moderado a un enemigo", "Sube mucho su defensa, a cambio de quedar paralizado un turno.", "Regenera una gran cantidad de su vida, a cambio de quedar paralizado por 2 turnos.", "Realiza un golpe de hoja cortante" });
 
     }
 
     public Leafeon(String nombre) {
         this(nombre, false);
     }
-    
+
     public void atacar2(Criatura otro) {
-        atacar1(otro);
+        this.defensa += 20;
+        stunearCriatura(1);
+        actualizarMensajeAtaque(1, 1);
+        ((PantallaDuelo)getWorld()).turno();
+        psyco.play(); 
+        psyco.setVolume(90);
     }
-    
+
     public boolean puedeRealizarAtaque2En(Criatura otro) {
-        return false;
+        if (otro == this){
+            return true;
+        }else if (!esDelMismoEquipoQue(otro)){
+            cambiarDescripcion("No puedes usar esta habilidad en un enemigo.");
+            return false;
+        }else{
+            cambiarDescripcion("No puedes usar esta habilidad en un aliado.");
+            return false;
+        }
     }
 
     public void atacar3(Criatura otro) {
-        int vidaRecuperada = (int)((double)this.getVidaMaxima()*0.35);
+        int vidaRecuperada = (int)((double)this.getVidaMaxima()*0.70);
         otro.recibirVida(otro, vidaRecuperada);
+        stunearCriatura(2);
         System.out.print(vidaRecuperada);
-        actualizarMensajeAtaque(1, 1);
+        actualizarMensajeAtaque(1, 2);
         ((PantallaDuelo)getWorld()).turno();
+        psyco.play(); 
+        psyco.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
-        return false;
+        if (otro == this){
+            return true;
+        }else if (!esDelMismoEquipoQue(otro)){
+            cambiarDescripcion("No puedes usar esta habilidad en un enemigo.");
+            return false;
+        }else{
+            cambiarDescripcion("No puedes usar esta habilidad en un aliado.");
+            return false;
+
+        }
     }
 
     public void atacar4(Criatura otro) {
-        ((PantallaDuelo)getWorld()).getObjects(Criatura.class).forEach(criatura -> {
-                criatura.recibirDaño(this, this.ataque*2);
-        });
-        int porcentajeDeVida = otro.vida*20/100;
-        this.recibirDaño(this, porcentajeDeVida);
-        actualizarMensajeAtaque(1, 1);
+        double efectividad = otro.recibirDaño(this, this.ataque*3, true);
+        actualizarMensajeAtaque(efectividad, 3);
         ((PantallaDuelo)getWorld()).turno();
+        psyco.play(); 
+        psyco.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 }

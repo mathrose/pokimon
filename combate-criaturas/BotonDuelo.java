@@ -121,7 +121,6 @@ public class BotonDuelo extends Actor {
 
         if (Greenfoot.mouseClicked(this)) {
             if(this.esClickeable){
-                System.out.print(this.nombre);
                 //El Boton Duelo te lleva a la Pantalla Duelo al hacerle click
                 ((PantallaSeleccion)getWorld()).empezarDuelo();
             }

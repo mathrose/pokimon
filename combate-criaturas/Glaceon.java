@@ -2,7 +2,7 @@ import greenfoot.GreenfootImage;
 
 public class Glaceon extends Criatura {
     public Glaceon(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,96,40,20, "Agua", new String[] { "Placaje", "Mirada Gelida", "Nieve Pesada", "Congelamiento eterno" }, imagenEspejada,
+        super(nombre, 100,96,25,20, "Agua", new String[] { "Placaje", "Mirada Gelida", "Nieve Pesada", "Congelamiento eterno" }, imagenEspejada,
             new String[] { "Causa un daño moderado a un enemigo", "Baja su ataque a la mitad, y stunea a todas las criaturas rivales.", "Realiza un ataque de nieve potente, a cambio de dañar a su grupo.", "Se autodestruye, congelando a los oponentes por 3 turnos." });
 
     }

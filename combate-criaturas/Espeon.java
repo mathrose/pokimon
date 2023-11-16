@@ -2,7 +2,7 @@ import greenfoot.GreenfootImage;
 
 public class Espeon extends Criatura {
     public Espeon(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,90,30,30, "Psiquico", new String[] { "Placaje", "Psicoforme", "Rayo Psiquico", "Brillo Milagroso" }, imagenEspejada,
+        super(nombre, 90,90,30,30, "Psiquico", new String[] { "Placaje", "Psicoforme", "Rayo Psiquico", "Brillo Milagroso" }, imagenEspejada,
             new String[] { "Causa un daño moderado a un enemigo", "Aumenta el ataque y la defensa de un aliado.", "Realiza un ataque moderado y paraliza a la criatura rival durante 1 turno", "Baja el ataque de todas las criaturas (incluyendose)." });
     }
 
@@ -37,8 +37,8 @@ public class Espeon extends Criatura {
         double efectividad = otro.recibirDaño(this, ataque+30);
         actualizarMensajeAtaque(efectividad, 2);
         ((PantallaDuelo)getWorld()).turno();
-        psyco.play(); 
-        psyco.setVolume(90);
+        psyco2.play(); 
+        psyco2.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
@@ -53,8 +53,8 @@ public class Espeon extends Criatura {
             });
         actualizarMensajeAtaque(1, 3);
         ((PantallaDuelo)getWorld()).turno();
-        psyco.play(); 
-        psyco.setVolume(90);
+        psyco2.play(); 
+        psyco2.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {
