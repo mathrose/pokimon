@@ -21,7 +21,7 @@ public class Sylveon extends Criatura {
         ((PantallaDuelo)getWorld()).turno();
        
         psyco.play(); 
-        psyco.setVolume(50);
+        psyco.setVolume(90);
     } 
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
