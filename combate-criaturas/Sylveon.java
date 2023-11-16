@@ -16,7 +16,6 @@ public class Sylveon extends Criatura {
    
         int vidaRecuperada = (int)((double)this.getVidaMaxima()*0.20);
         otro.recibirVida(otro, vidaRecuperada);
-        System.out.print(vidaRecuperada);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
        
