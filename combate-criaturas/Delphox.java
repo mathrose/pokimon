@@ -40,7 +40,7 @@ public class Delphox extends Criatura {
 
     public void atacar4(Criatura otro) {
 
-        double[] calculoAtaque = calcularAtaque(otro, ataque*2);
+        double[] calculoAtaque = otro.calcularAtaque(this, ataque*2);
         int daño = (int)calculoAtaque[0];
         double efectividad = calculoAtaque[1];
 
