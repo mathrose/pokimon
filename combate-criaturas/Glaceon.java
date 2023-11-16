@@ -2,40 +2,69 @@ import greenfoot.GreenfootImage;
 
 public class Glaceon extends Criatura {
     public Glaceon(String nombre, boolean imagenEspejada) {
-        super(nombre, 21,96,40,20, "Agua", new String[] { "Placaje", "Mirada Gelida", "Nieve Pesada", "Muro Congelado" }, imagenEspejada,
-                new String[] { "Causa un daño moderado a un enemigo", "Los jugadores rivales solo pueden atacar con placaje durante 1 turno", "Realiza un ataque potente del 40% de la vida del oponente", "No puede ser paralizado por 1 turno" });
-                
+        super(nombre, 21,96,40,20, "Agua", new String[] { "Placaje", "Mirada Gelida", "Nieve Pesada", "Congelamiento eterno" }, imagenEspejada,
+            new String[] { "Causa un daño moderado a un enemigo", "Baja su ataque a la mitad, y stunea a todas las criaturas rivales.", "Realiza un ataque de nieve potente, a cambio de dañar a su grupo.", "Se autodestruye, congelando a los oponentes por 3 turnos." });
 
     }
 
     public Glaceon(String nombre) {
         this(nombre, false);
     }
-    
+
     public void atacar2(Criatura otro) {
-        atacar1(otro);
+        ((PantallaDuelo)getWorld()).getObjects(Criatura.class).forEach(criatura -> {
+                if (!esDelMismoEquipoQue(criatura)){
+                    criatura.stunearCriatura(1);
+                }
+            });
+        this.perderPuntosDeAtaque(this.ataque/2);
+
+        actualizarMensajeAtaque(1, 1);
+        ((PantallaDuelo)getWorld()).turno();
+
+        psyco.play(); 
+        psyco.setVolume(90);
+
     }
-    
+
     public boolean puedeRealizarAtaque2En(Criatura otro) {
-        return false;
+        return !esDelMismoEquipoQue(otro);
     }
 
     public void atacar3(Criatura otro) {
-        int porcentajeDeVida = otro.vida*40/100;
-        double efectividad = otro.recibirDaño(this, porcentajeDeVida);
+        double efectividad = otro.recibirDaño(this, ataque*4, true);
+        ((PantallaDuelo)getWorld()).getObjects(Criatura.class).forEach(criatura -> {
+                if (esDelMismoEquipoQue(criatura)){
+                    criatura.recibirDaño(this, ataque*2, true);
+                }
+            });
+
         actualizarMensajeAtaque(efectividad, 2);
         ((PantallaDuelo)getWorld()).turno();
+
+        psyco.play(); 
+        psyco.setVolume(90);
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 
     public void atacar4(Criatura otro) {
-        atacar1(otro);
+
+        ((PantallaDuelo)getWorld()).getObjects(Criatura.class).forEach(criatura -> {
+                if (!esDelMismoEquipoQue(criatura)){
+                    criatura.stunearCriatura(3);
+                }
+            });
+        actualizarMensajeAtaque(1.0, 3);
+        ((PantallaDuelo)getWorld()).turno();
+        this.recibirDaño(this, this.ataque*200);
+
+        
     }
 
     public boolean puedeRealizarAtaque4En(Criatura otro) {
-        return false;
+        return true;
     }
 }
