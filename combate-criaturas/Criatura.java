@@ -218,7 +218,7 @@ public abstract class Criatura extends Actor {
         uiInfoCriatura.actualizar();
         return efectividad;
     }
-    
+
     protected void recibirDañoNeto(int ataque) {
 
         this.vida -= ataque;
@@ -409,21 +409,25 @@ public abstract class Criatura extends Actor {
             // disminuye el ataque en la cantidad especificada
             this.ataque-=ataquePerdido;
         }
-
     }
 
-    public int perderPuntosDeDefensa(int lossDef){
+    public void perderPuntosDeDefensa(int lossDef){
         // Reducción de puntos de ataque en la cantidad especificada
-        this.ataque-=lossDef;
-        // Devuelve el valor actualizado de puntos de defensa
-        return this.defensa;
+        this.defensa-=lossDef;
     }
 
-    public int perderPuntosVida(int lossLife){
+    public void perderPuntosVida(int lossLife){
         // Reducción de puntos de vida en la cantidad especificada
         this.vida-=lossLife;
         // Devuelve el valor actualizado de puntos de vida
-        return this.vida;
     }
 
+    public void ganarPuntosDeAtaque(int addAttack) {
+        this.ataque+=addAttack;
+    }
+
+    public void ganarPuntosDeDefensa(int addDef){
+        // Reducción de puntos de ataque en la cantidad especificada
+        this.defensa+=addDef;
+    }
 }
