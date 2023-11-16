@@ -24,7 +24,7 @@ public class Charizard extends Criatura {
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 
     public void atacar3(Criatura otro) {
@@ -40,7 +40,7 @@ public class Charizard extends Criatura {
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 
     public void atacar4(Criatura otro) {

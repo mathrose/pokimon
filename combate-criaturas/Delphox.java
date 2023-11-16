@@ -3,7 +3,7 @@ import greenfoot.GreenfootImage;
 public class Delphox extends Criatura {
     public Delphox(String nombre, boolean imagenEspejada) {
         super(nombre, 90,90,20,90 , "Fuego", new String[] { "Placaje", "Giro de Fuego", "Desfile de Antorchas", "Fuego Magico" }, imagenEspejada,
-            new String[] { "Causa un daño moderado a un enemigo", "Disminuye 2 puntos el ataque de la criatura rival y lo paraliza durante 1 turno", "Realiza un ataque de 30 puntos por cada criatura muerta", "El daño causante lo recupera en salud" });
+            new String[] { "Causa un daño moderado a un enemigo", "Disminuye 12 puntos el ataque de la criatura rival y lo paraliza durante 1 turno", "Este ataque aumenta su daño por cada criatura muerta.", "El daño causante lo recupera en salud" });
 
     }
 
@@ -12,7 +12,7 @@ public class Delphox extends Criatura {
     }
 
     public void atacar2(Criatura otro) {
-        otro.perderPuntosDeAtaque(2);
+        otro.perderPuntosDeAtaque(12);
         otro.stunearCriatura(1);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
@@ -20,37 +20,34 @@ public class Delphox extends Criatura {
     }
 
     public boolean puedeRealizarAtaque2En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 
     public void atacar3(Criatura otro) {
-        atacar1(otro);
+        int cantidadDeCriaturasMuertas = 6 - ((PantallaDuelo)getWorld()).getObjects(Criatura.class).size();
+        System.out.print(cantidadDeCriaturasMuertas);
+        double efectividad = otro.recibirDaño(this, this.ataque*cantidadDeCriaturasMuertas);
+        actualizarMensajeAtaque(efectividad, 2);
+        ((PantallaDuelo)getWorld()).turno();
     }
 
     public boolean puedeRealizarAtaque3En(Criatura otro) {
-        return false;
+        return !esDelMismoEquipoQue(otro);
     }
 
     public void atacar4(Criatura otro) {
-        if(this.vida <= 75){
-            double efectividad = otro.recibirDaño(this, this.ataque);
-            actualizarMensajeAtaque(efectividad, 3);
-            ((PantallaDuelo)getWorld()).turno();
-            System.out.print(this.vida);
-            vida+=15;
-            uiInfoCriatura.actualizar();
-            System.out.print(this.vida);
-        }else{
-            double efectividad = otro.recibirDaño(this, this.ataque);
-            actualizarMensajeAtaque(efectividad, 3);
-            this.vida = 90;
-            uiInfoCriatura.actualizar();
-            ((PantallaDuelo)getWorld()).turno();
-            System.out.print(this.vida);
-        }
-    }
 
+        double[] calculoAtaque = calcularAtaque(this, ataque*2);
+        int daño = (int)calculoAtaque[0];
+        double efectividad = calculoAtaque[1];
+
+        otro.recibirDañoNeto(daño);
+        this.recibirVida(this, daño);
+        actualizarMensajeAtaque(efectividad, 3);
+        ((PantallaDuelo)getWorld()).turno();
+
+    }
     public boolean puedeRealizarAtaque4En(Criatura otro) {
-        return true;
+        return !esDelMismoEquipoQue(otro);
     }
 }

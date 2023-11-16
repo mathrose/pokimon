@@ -224,6 +224,20 @@ public abstract class Criatura extends Actor {
         uiInfoCriatura.actualizar();
         return efectividad;
     }
+    
+    protected void recibirDañoNeto(int ataque) {
+
+        this.vida -= ataque;
+        // START Remueve el objeto del pokemon si se queda sin vida
+        if (this.vida<=0){
+            this.vida = 0;
+            uiInfoCriatura.actualizar();
+            getWorld().removeObject(this.uiInfoCriatura);
+            getWorld().removeObject(this);
+        }
+        // END
+        uiInfoCriatura.actualizar();
+    }
 
     protected void recibirVida(Criatura objetivo, int cantidadVida) {
         this.vida += cantidadVida;
@@ -236,7 +250,7 @@ public abstract class Criatura extends Actor {
         uiInfoCriatura.actualizar();
     }
 
-    private double[] calcularAtaque(Criatura atacante, int ataque) {
+    protected double[] calcularAtaque(Criatura atacante, int ataque) {
         Random random = new Random();
         double ataqueContraDefensa = ataque/this.defensa;
         double randomNumber = random.nextDouble()*(1.25-0.5) + 0.5;
