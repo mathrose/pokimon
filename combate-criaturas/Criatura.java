@@ -32,6 +32,7 @@ public abstract class Criatura extends Actor {
     protected String nombreAtaqueActual = "";
 
     protected int stun = 0;
+
     protected UIInfoCriatura uiInfoCriatura;
 
     private boolean visualHover;

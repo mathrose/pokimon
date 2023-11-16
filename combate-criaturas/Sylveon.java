@@ -1,8 +1,9 @@
+import greenfoot.*;
 
 public class Sylveon extends Criatura {
    
     public Sylveon(String nombre, boolean imagenEspejada) {
-        super(nombre, 100,115,20,10, "Viento", new String[] { "Placaje", "Luz lunar", "Voz Cautivadora", "Sinfonia de Latigazos" }, imagenEspejada,
+        super(nombre, 100,80,20,10, "Viento", new String[] { "Placaje", "Luz lunar", "Voz Cautivadora", "Sinfonia de Latigazos" }, imagenEspejada,
             new String[] { "Causa un daño moderado a un enemigo", "Regenera vida a si mismo, o a un aliado", "La criatura rival queda aturdida durante 1 turno", "Realiza multiples ataques de placaje" });
     }
     //hola
@@ -53,18 +54,18 @@ public class Sylveon extends Criatura {
     }
 
     public void atacar4(Criatura otro) {
-         
-        int i=0;
-        while(i<5){ double efectividad = otro.recibirDaño(this, this.ataque);
-            actualizarMensajeAtaque(efectividad, 0);
-            ((PantallaDuelo)getWorld()).turno();
-            i++;
-            
-      
+        this.hit=hit;
+        
+        for(int i = 1; i < 4; i++){
+        otro.recibirDaño(this, this.ataque);
+        hit.play(); 
+        cambiarDescripcion("Sylveon ha usado placaje x" + i);
+        Greenfoot.delay(200);
+        }
+        
+        actualizarMensajeAtaque(1, 3);
+        ((PantallaDuelo)getWorld()).turno();
 
-       }
-        multihit.play(); 
-        multihit.setVolume(50);
         
     }
 
