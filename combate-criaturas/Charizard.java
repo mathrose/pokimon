@@ -3,8 +3,8 @@ import greenfoot.GreenfootImage;
 public class Charizard extends Criatura {
     public Charizard(String nombre, boolean imagenEspejada) {
         //vida, ataque, defensa, velocidad
-        super(nombre, 150,130,14,90 , "Fuego", new String[] { "Placaje", "Gruñido", "Pantalla de Humo", "Lanzallamas" }, imagenEspejada,
-            new String[] { "Causa un daño moderado a un enemigo", "Baja 7 puntos al nivel de ataque de una criatura rival", "Causa un daño elevado a una criatura rival, con el costo de quedar paralizado por 2 turnos.", "Este ataque causa el triple de daño solo si se tiene mayor cantidad de vida que la criatura rival" });
+        super(nombre, 90,130,14,90 , "Fuego", new String[] { "Placaje", "Gruñido", "Pantalla de Humo", "Lanzallamas" }, imagenEspejada,
+            new String[] { "Causa un daño moderado a un enemigo", "Baja 7 puntos al nivel de ataque de una criatura rival", "Causa un daño elevado a una criatura rival, con el costo de quedar paralizado por 2 turnos.", "Este ataque causa un gran daño solo si se tiene mayor cantidad de vida que la criatura rival" });
 
     }
 
@@ -46,12 +46,15 @@ public class Charizard extends Criatura {
     public void atacar4(Criatura otro) {
         llamarada2.play(); 
         llamarada.setVolume(35);
-        if (vida<otro.vida){
+        if (this.vida>otro.vida){
 
-            double efectividad = otro.recibirDaño(this, this.ataque*3);
-            actualizarMensajeAtaque(efectividad, 0);
-            ((PantallaDuelo)getWorld()).turno();} else{  double efectividad = otro.recibirDaño(this, this.ataque);
-            actualizarMensajeAtaque(efectividad, 0);
+            double efectividad = otro.recibirDaño(this, this.ataque*3, true);
+            actualizarMensajeAtaque(efectividad, 3);
+            ((PantallaDuelo)getWorld()).turno();
+
+        } else {
+            double efectividad = otro.recibirDaño(this, this.ataque, true);
+            actualizarMensajeAtaque(efectividad, 3);
             ((PantallaDuelo)getWorld()).turno();}
     }
 
