@@ -123,6 +123,7 @@ public class PantallaDuelo extends World {
             turno();
             return;
         }else{
+            criaturas[turno].setStun(false);
             uiAtaques.cambiarColorDescripcion(Color.BLACK);
         }
 

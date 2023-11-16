@@ -12,9 +12,8 @@ public class Blastoise extends Criatura {
         this(nombre, false);
     }
 
-
     public void atacar2(Criatura otro) {
-        double efectividad = otro.recibirDaño(this, this.ataque*4);
+        double efectividad = otro.recibirDaño(this, this.ataque*3, true);
         actualizarMensajeAtaque(efectividad, 1);
         ((PantallaDuelo)getWorld()).turno();
 
@@ -42,7 +41,7 @@ public class Blastoise extends Criatura {
     //Autodestruccion
     public void atacar4(Criatura otro) {
         ((PantallaDuelo)getWorld()).getObjects(Criatura.class).forEach(criatura -> {
-                criatura.recibirDaño(this, this.ataque*4);
+                criatura.recibirDaño(this, this.ataque*2);
             });
         actualizarMensajeAtaque(1.0, 3);
         ((PantallaDuelo)getWorld()).turno();
@@ -53,33 +52,8 @@ public class Blastoise extends Criatura {
         return true;
     }
 
-    protected double recibirDaño(Criatura atacante, int ataque) {
-        double[] calculoAtaque = calcularAtaque(atacante, ataque);
 
-        int daño = (int)calculoAtaque[0];
-        double efectividad = calculoAtaque[1];
 
-        this.vida -= daño;
 
-        //Remueve el objeto del pokemon si se queda sin vida
-        if (this.vida<=0){
-            this.vida = 0;
-            uiInfoCriatura.actualizar();
-            getWorld().removeObject(this.uiInfoCriatura);
-            getWorld().removeObject(this);
-        }
-
-        uiInfoCriatura.actualizar();
-        return efectividad;
-    }
-
-    private double[] calcularAtaque(Criatura atacante, int ataque) {
-        Random random = new Random();
-        double ataqueContraDefensa = ataque/this.defensa;
-        double randomNumber = random.nextInt(2) + 1;
-        double efectividad = calcularEfectividad(atacante);
-        double daño = 2*(1+ataqueContraDefensa)*randomNumber*efectividad;
-        return (new double[] {daño, efectividad});
-    }
 
 }

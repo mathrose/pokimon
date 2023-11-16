@@ -4,7 +4,7 @@ public class Charizard extends Criatura {
     public Charizard(String nombre, boolean imagenEspejada) {
         //vida, ataque, defensa, velocidad
         super(nombre, 150,130,14,90 , "Fuego", new String[] { "Placaje", "Gruñido", "Pantalla de Humo", "Lanzallamas" }, imagenEspejada,
-            new String[] { "Causa un daño moderado a un enemigo", "Baja 5 puntos al nivel de ataque de una criatura rival", "Causa un daño elevado a una criatura rival y la paraliza durante 1 turno", "Este ataque causa el triple de daño solo si se tiene mayor cantidad de vida que la criatura rival" });
+            new String[] { "Causa un daño moderado a un enemigo", "Baja 7 puntos al nivel de ataque de una criatura rival", "Causa un daño elevado a una criatura rival, con el costo de quedar paralizado por 2 turnos.", "Este ataque causa el triple de daño solo si se tiene mayor cantidad de vida que la criatura rival" });
 
     }
 
@@ -14,7 +14,7 @@ public class Charizard extends Criatura {
 
     public void atacar2(Criatura otro) {
 
-        otro.perderPuntosDeAtaque(6);
+        otro.perderPuntosDeAtaque(7);
         actualizarMensajeAtaque(1, 1);
         ((PantallaDuelo)getWorld()).turno();
 
@@ -32,11 +32,9 @@ public class Charizard extends Criatura {
         llamarada.play(); 
         llamarada.setVolume(50);
 
-        otro.stunearCriatura(3);
-        actualizarMensajeAtaque(1, 1);
-        ((PantallaDuelo)getWorld()).turno();
-        double efectividad = otro.recibirDaño(this, this.ataque*4);
-        actualizarMensajeAtaque(efectividad, 1);
+        this.stunearCriatura(2);
+        double efectividad = otro.recibirDaño(this, this.ataque*3, true);
+        actualizarMensajeAtaque(efectividad, 2);
         ((PantallaDuelo)getWorld()).turno();
 
     }

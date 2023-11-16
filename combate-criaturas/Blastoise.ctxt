@@ -2,8 +2,6 @@
 comment0.target=Blastoise
 comment1.params=nombre\ imagenEspejada
 comment1.target=Blastoise(java.lang.String,\ boolean)
-comment10.params=atacante\ ataque
-comment10.target=double[]\ calcularAtaque(Criatura,\ int)
 comment2.params=nombre
 comment2.target=Blastoise(java.lang.String)
 comment3.params=otro
@@ -18,6 +16,4 @@ comment7.params=otro
 comment7.target=void\ atacar4(Criatura)
 comment8.params=otro
 comment8.target=boolean\ puedeRealizarAtaque4En(Criatura)
-comment9.params=atacante\ ataque
-comment9.target=double\ recibirDa\u00F1o(Criatura,\ int)
-numComments=11
+numComments=9

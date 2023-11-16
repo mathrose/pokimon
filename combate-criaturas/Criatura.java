@@ -32,6 +32,8 @@ public abstract class Criatura extends Actor {
     protected String nombreAtaqueActual = "";
 
     protected int stun = 0;
+    protected boolean criaturaStuneada = false;
+    protected boolean ultimoTurnoStuneado = false;
 
     protected UIInfoCriatura uiInfoCriatura;
 
@@ -145,8 +147,8 @@ public abstract class Criatura extends Actor {
     }
 
     public void atacar1(Criatura otro) {
-        double efectividad = otro.recibirDaño(this, this.ataque);
-        actualizarMensajeAtaque(efectividad, 0);
+        otro.recibirDaño(this, this.ataque);
+        actualizarMensajeAtaque(1, 0);
         ((PantallaDuelo)getWorld()).turno();
         this.hit=hit;
         hit.play(); 
@@ -159,6 +161,10 @@ public abstract class Criatura extends Actor {
             ((PantallaDuelo)getWorld()).turno();
         }
 
+    }
+
+    public void setStun(boolean stun) {
+        this.criaturaStuneada = stun;
     }
 
     public abstract void atacar3(Criatura otro);
@@ -183,10 +189,10 @@ public abstract class Criatura extends Actor {
         double[] calculoAtaque = calcularAtaque(atacante, ataque);
 
         int daño = (int)calculoAtaque[0];
-        double efectividad = calculoAtaque[1];
+
+        double efectividad = 1;
 
         this.vida -= daño;
-
         // START Remueve el objeto del pokemon si se queda sin vida
         if (this.vida<=0){
             this.vida = 0;
@@ -195,16 +201,31 @@ public abstract class Criatura extends Actor {
             getWorld().removeObject(this);
         }
         // END
+        uiInfoCriatura.actualizar();
+        return efectividad;
+    }
 
-        //this.imagenOriginal = new MyGreenfootImage(new GreenfootImage("tumba.png"));
-        //this.imagenOriginal.scale(130, 130);
-        //render();
+    protected double recibirDaño(Criatura atacante, int ataque, boolean elemental) {
+        double[] calculoAtaque = calcularAtaque(atacante, ataque);
+
+        int daño = (int)calculoAtaque[0];
+
+        double efectividad = calculoAtaque[1];
+
+        this.vida -= daño;
+        // START Remueve el objeto del pokemon si se queda sin vida
+        if (this.vida<=0){
+            this.vida = 0;
+            uiInfoCriatura.actualizar();
+            getWorld().removeObject(this.uiInfoCriatura);
+            getWorld().removeObject(this);
+        }
+        // END
         uiInfoCriatura.actualizar();
         return efectividad;
     }
 
     protected void recibirVida(Criatura objetivo, int cantidadVida) {
-
         this.vida += cantidadVida;
         // START gestiona la vida, si la curacion supera a la vida maxima.
         if (this.vida>=objetivo.getVidaMaxima()){
@@ -293,7 +314,7 @@ public abstract class Criatura extends Actor {
     public String getStats() {
         // Se obtiene el nombre de la criatura con el nombre de su clase
         return nombre + " (" + this.getClass().getSimpleName() + ")\n" +
-        //Es información detallada sobre las estadísticas de la criatura
+            //Es información detallada sobre las estadísticas de la criatura
         " - Ataque: "+ this.ataque + "\n" +
         " - Defensa: " + this.defensa + "\n" +
         " - Velocidad: "+ this.velocidad + "\n" +
@@ -313,7 +334,13 @@ public abstract class Criatura extends Actor {
     }
 
     public void setMensajeStun() {
-        this.mensajeAtaque = (this.nombre + " está estuneado por: " + getTurnosStun() + " turnos");
+        if (getTurnosStun() == 1) {
+            this.mensajeAtaque = (this.nombre + " está estuneado por: " + getTurnosStun() + " turno.\n" + "En el siguiente turno la criatura podra atacar.");
+        }
+        else{
+            this.mensajeAtaque = (this.nombre + " está estuneado por: " + getTurnosStun() + " turnos");
+        }
+
     }
 
     public String getMensajeAtaque() {
@@ -330,15 +357,19 @@ public abstract class Criatura extends Actor {
 
     protected void pasarTurnoStun() {
         // Verifica si la criatura está aturdida
+
         if (this.stun > 0) {
             // Si la criatura está aturdida, 
             // disminuye el contador de turnos de aturdimiento en 1
             this.stun -= 1;
+            criaturaStuneada = true;
 
         }else{
             // Si el contador de turnos de aturdimiento es 0 o negativo, 
             //se asegura de que se establezca a 0
             this.stun = 0;
+            criaturaStuneada = false;
+
         }
 
     }
@@ -346,6 +377,19 @@ public abstract class Criatura extends Actor {
     public boolean getStun() {
         // Verifica si el contador de turnos de aturdimiento (stun) no es igual a 0
         if (stun != 0 ){
+            // Si stun no es igual a 0, la criatura está aturdida
+            return true;
+        }
+        else{
+            // Si stun es igual a 0, la criatura no está aturdida
+            criaturaStuneada = false;
+            return false;
+        }
+    }
+
+    public boolean getStunImage() {
+        // Verifica si el contador de turnos de aturdimiento (stun) no es igual a 0
+        if (stun != -1 ){
             // Si stun no es igual a 0, la criatura está aturdida
             return true;
         }
@@ -363,7 +407,7 @@ public abstract class Criatura extends Actor {
     }
 
     public void perderPuntosDeAtaque(int ataquePerdido){
-         // Si la resta de puntos de ataque resulta en un valor no positivo
+        // Si la resta de puntos de ataque resulta en un valor no positivo
         if ((this.ataque - ataquePerdido <= 0)) {
             // Si la reducción llevaría a un valor no positivo, 
             // establece el ataque a 0
